@@ -1778,6 +1778,11 @@
 				<ref bean="applicationFor2"></ref>
 			</list>
 		</property>
+		<property name="notifications">
+			<list>
+				<ref bean="notification1"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<bean id="trip2" class="domain.Trip">
@@ -1807,6 +1812,10 @@
 		<property name="applicationsFor">
 			<list>
 				<ref bean="applicationFor3"></ref>
+			</list>
+		</property>
+		<property name="notifications">
+			<list>
 			</list>
 		</property>
 
@@ -1842,6 +1851,10 @@
 				<ref bean="applicationFor6"></ref>
 			</list>
 		</property>
+		<property name="notifications">
+			<list>
+			</list>
+		</property>
 
 	</bean>
 
@@ -1867,6 +1880,10 @@
 			</list>
 		</property> 
 		<property name="applicationsFor">
+			<list>
+			</list>
+		</property>
+		<property name="notifications">
 			<list>
 			</list>
 		</property>
@@ -1897,6 +1914,10 @@
 			</list>
 		</property> 
 		<property name="applicationsFor">
+			<list>
+			</list>
+		</property>
+		<property name="notifications">
 			<list>
 			</list>
 		</property>
@@ -2938,4 +2959,11 @@
 	
 	<!-- NOTIFICATIONS -->
 	
+	<bean id="notification1" class="domain.Notification">
+		<property name="ticker" value="170112-WWWW"></property>
+		<property name="gauge" value="1"></property>
+		<property name="moment" value="2017/10/27 03:10" />
+		
+		
+	</bean>
 </beans>

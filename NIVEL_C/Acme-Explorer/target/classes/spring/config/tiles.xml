@@ -38,7 +38,7 @@
 		<value>/views/configurationSystem/tiles.xml/</value>
 		<value>/views/tag/tiles.xml/</value>
 		<value>/views/value/tiles.xml/</value>
-		
+		<value>/views/notification/tiles.xml/</value>
 		
 		
 	</util:list>

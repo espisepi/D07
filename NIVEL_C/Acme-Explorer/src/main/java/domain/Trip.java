@@ -4,7 +4,6 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
-import javax.management.Notification;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
@@ -146,7 +145,7 @@ public class Trip extends DomainEntity {
 
 
 	@NotNull
-	@OneToMany(cascade = CascadeType.REMOVE)
+	@OneToMany
 	public Collection<Notification> getNotifications() {
 		return this.notifications;
 	}
