@@ -42,7 +42,7 @@
 	<form:label path="moment">
 		<spring:message code="notification.moment" />:
 	</form:label>
-	<form:input path="moment" readonly="true"/>
+	<form:input path="moment" placeholder=" yyyy/MM/dd HH:hh"/>
 	<form:errors cssClass="error" path="moment" />
 	<br />
 	

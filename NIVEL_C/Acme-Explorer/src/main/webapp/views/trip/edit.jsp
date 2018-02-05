@@ -31,6 +31,7 @@
 	<form:hidden path="stages"/>
 	<form:hidden path="applicationsFor"/>
 	<form:hidden path="values"/>
+	<form:hidden path="notifications"/>
 	
 	<!--  <input id="cancelled" name="cancelled" type="hidden" value="0"/>-->
 
