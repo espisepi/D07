@@ -82,6 +82,9 @@
 		
 		<bean class="converters.StringToValueConverter"/>
 		<bean class="converters.ValueToStringConverter"/>
+		
+		<bean class="converters.StringToNotificationConverter"/>
+		<bean class="converters.NotificationToStringConverter"/>
 				
 	</util:list>
 	

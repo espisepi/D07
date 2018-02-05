@@ -173,6 +173,14 @@
 	</security:authorize>
 
 
+<!-- AÑADIR BOTON DE NOTIFICATION -->
+<spring:message code="notification.list" var="notifications" />
+<display:column title="${notifications}">
+		<spring:url value="notification/list.do" var="notificationURL">
+			<spring:param name="tripId" value="${row.id }" />
+		</spring:url>
+			<a href="${notificationURL}"><spring:message code="notification.list" /></a>
+</display:column>
 
 
 </display:table>

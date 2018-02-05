@@ -22,17 +22,11 @@ public class NotificationService {
 	// Managed repository -----------------------------------------------------
 
 	@Autowired
-	private NotificationRepository		notificationRepository;
+	private NotificationRepository	notificationRepository;
 
 	// Supporting services ----------------------------------------------------
 	@Autowired
-	private ManagerService				managerService;
-	@Autowired
-	private TripService					tripService;
-	@Autowired
-	private MessageService				messageService;
-	@Autowired
-	private ConfigurationSystemService	configurationSystemService;
+	private ManagerService			managerService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -43,7 +37,7 @@ public class NotificationService {
 
 	// Simple CRUD methods ----------------------------------------------------
 
-	public Notification create(final Trip trip) {
+	public Notification create() {
 		Notification result;
 		Date moment;
 		Manager managerPrincipal;
@@ -118,7 +112,7 @@ public class NotificationService {
 		return result;
 	}
 
-	public Notification save(final Notification notification, final Trip trip) {
+	public Notification save(final Notification notification) {
 		final Date moment;
 		Assert.notNull(notification);
 
@@ -128,7 +122,7 @@ public class NotificationService {
 			//Solo se cambia el moment la primera vez que se crea, si se actualiza no se cambia su moment
 			moment = new Date(System.currentTimeMillis() - 1000);
 			notification.setMoment(moment);
-			trip.getNotifications().add(notification);
+			//trip.getNotifications().add(notification);
 
 		}
 
@@ -141,9 +135,14 @@ public class NotificationService {
 		Assert.isTrue(notification.getId() != 0);
 		Assert.isTrue(this.notificationRepository.exists(notification.getId()));
 		Trip trip;
+		Manager managerPrincipal;
 
 		trip = this.findTripWithThisNotification(notification.getId());
-		trip.getNotifications().remove(notification);
+		//Comprobamos si la notification pertenece al manager logeado
+		managerPrincipal = this.managerService.findByPrincipal();
+		Assert.isTrue(trip.getManager().equals(managerPrincipal));
+		//Borramos la notificacion de la lista de notificaciones de Trip (No haria falta en bidireccional
+		//trip.getNotifications().remove(notification);
 
 		this.notificationRepository.delete(notification);
 	}
@@ -172,6 +171,30 @@ public class NotificationService {
 
 		result = this.notificationRepository.findTripWithThisNotification(notificationId);
 		Assert.notNull(result);
+
+		return result;
+	}
+
+	public Collection<Notification> findNotificationsWithTripId(final int tripId) {
+		Collection<Notification> result;
+
+		result = this.notificationRepository.findNotificationsWithTripId(tripId);
+
+		return result;
+	}
+
+	public Collection<Trip> findTripsWithManagerId(final int managerId) {
+		Collection<Trip> result;
+
+		result = this.notificationRepository.findTripsWithManagerId(managerId);
+
+		return result;
+	}
+
+	public Collection<Notification> findByManagerId(final int managerId) {
+		Collection<Notification> result;
+
+		result = this.notificationRepository.findByManagerId(managerId);
 
 		return result;
 	}

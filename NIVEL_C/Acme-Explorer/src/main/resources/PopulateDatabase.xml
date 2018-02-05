@@ -2963,6 +2963,7 @@
 		<property name="ticker" value="170112-WWWW"></property>
 		<property name="gauge" value="1"></property>
 		<property name="moment" value="2017/10/27 03:10" />
+		<property name="trip"><ref bean="trip1" /></property>
 		
 		
 	</bean>

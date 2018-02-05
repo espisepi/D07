@@ -21,60 +21,52 @@
 
 
 
-<form:form action="${RequestURI }" modelAttribute="applicationFor">
+<form:form action="${RequestURI }" modelAttribute="notification">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	<form:hidden path="explorer"/>
+	<form:hidden path="ticker" />
 	
-	<form:hidden path="moment"/>
-	<form:hidden path="status"/>
-	<form:hidden path="reasonWhy"/>
-	<form:hidden path="trip"/>
-	<form:hidden path="creditCard"/>
-	<form:hidden path="manager"/>
-	
-
-
-<security:authorize access="hasRole('EXPLORER')">
-
-<p><spring:message code="trip.ticker" />: <jstl:out value="${trip.ticker}"></jstl:out></p>
-	<form:label path="comments">
-		<spring:message code="applicationfor.comment" />:
+	<form:label path="gauge">
+		<spring:message code="notification.gauge" />:
 	</form:label>
-
-	
-	<form:input path="comments" />
-	<form:errors cssClass="error" path="comments" /> 
+	<form:select id="gauge" path="gauge" >
+		<form:option value="0" label="----" />		
+		<form:option value="1" label="1" />
+		<form:option value="2" label="2" />
+		<form:option value="3" label="3" />
+	</form:select>
+	<form:errors cssClass="error" path="gauge" />
 	<br />
+	
+	<form:label path="moment">
+		<spring:message code="notification.moment" />:
+	</form:label>
+	<form:input path="moment" readonly="true"/>
+	<form:errors cssClass="error" path="moment" />
 	<br />
+	
+	<form:label path="trip">
+		<spring:message code="notification.trip" />:
+	</form:label>
+	<form:select id="trips" path="trip" >
+		<form:option value="0" label="----" />		
+		<form:options items="${trips}" itemValue="id"
+			itemLabel="title" />
+	</form:select>
+	<form:errors cssClass="error" path="trip" />
 	<br />
 	
-
-
-	<!--  <h2><spring:message code="trip.aplicationfor.name.table" /></h2>	-->
-
-	
-	
-
-	
-	
-	<br />
-
-</security:authorize>
-
-
-
-
-	<input type="submit" name="save" value="<spring:message code="applicationfor.save" />" />&nbsp;
-	 
-	<jstl:if test="${applicationFor.id != 0}">
-		<input type="submit" name="delete" value="<spring:message code="applicationfor.delete" />"
-			onclick="javascript: return confirm('<spring:message code="applicationfor.confirm.delete" />')" />&nbsp;
-			
+	<input type="submit" name="save"
+		value="<spring:message code="notification.save" />" />&nbsp; 
+		
+	<jstl:if test="${notification.id != 0}">
+		<input type="submit" name="delete"
+			value="<spring:message code="messageFolder.delete" />"
+			onclick="javascript: return confirm('<spring:message code="notification.confirm.delete" />')" />&nbsp;
 	</jstl:if>
+	
 	<input type="button" name="cancel"
-		value="<spring:message code="applicationfor.cancel" />"
-		onclick="javascript:  window.location.replace('trip/explorer/list-not-apply.do');" />
-	<br />
+		value="<spring:message code="notification.cancel" />"
+		onclick="javascript:  window.location.replace('notification/manager_/list.do');" />
 </form:form>

@@ -145,7 +145,7 @@ public class Trip extends DomainEntity {
 
 
 	@NotNull
-	@OneToMany
+	@OneToMany(mappedBy = "trip", cascade = CascadeType.REMOVE)
 	public Collection<Notification> getNotifications() {
 		return this.notifications;
 	}

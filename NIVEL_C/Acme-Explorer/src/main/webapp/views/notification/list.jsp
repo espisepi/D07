@@ -22,54 +22,61 @@
 <jsp:useBean id="util" class="utilities.Methodutilities" scope="page" />
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="notification" requestURI="${requestURI}" id="row">
+	name="notifications" requestURI="${requestURI}" id="row">
+	
 	<%!String estilo="red";%>
-	<%-- <jstl:choose>
-			<jstl:when test="${row.status=='PENDING'}">
-<jstl:if test="${util.moreThanThirtyDays(row.trip.startDate)==false}"> 
-		<%=estilo = "red"%>
+	<jstl:choose>
 	
-</jstl:if>
-<jstl:if test="${util.moreThanThirtyDays(row.trip.startDate)==true}"> 
-		<%=estilo = "white"%>
+		<jstl:when test="${row.gauge=='1'}">
+			<%=estilo = "red"%>
+		</jstl:when>
+
+		<jstl:when test="${row.gauge=='2'}">
+			<%=estilo = "cyan"%>
+		</jstl:when>
+		
+		<jstl:when test="${row.gauge=='3'}">
+			<%=estilo = "yellow"%>
+		</jstl:when>
+
+	</jstl:choose>
 	
-</jstl:if> 
-			</jstl:when>
-
-			<jstl:when test="${row.status=='REJECTED'}">
-				<%=estilo = "grey"%>
-
-			</jstl:when>
-
-			<jstl:when test="${row.status=='DUE'}">
-
-				<%=estilo = "yellow"%>
-			</jstl:when>
-
-			<jstl:when test="${row.status=='ACCEPTED'}">
-				<%=estilo = "green"%>
-			</jstl:when>
-
-			<jstl:when test="${row.status=='CANCELLED'}">
-				<%=estilo = "cyan"%>
-			</jstl:when>
-
-		</jstl:choose> --%>
+	<spring:message code="notification.ticker" var="tickerHeader" />
+	<display:column property="ticker" title="${tickerHeader}" sortable="true" />
 	
 	<spring:message code="notification.format.date" var="pattern"></spring:message>
 	<spring:message code="notification.moment" var="momentHeader" />
-	<display:column property="moment" title="${momentHeader}" sortable="true" format="${pattern}" class="<%= estilo %>" />
+	<display:column property="moment" title="${momentHeader}" sortable="true" format="${pattern}" />
 
-	<spring:message code="notification.status" var="statusHeader" />
-	<display:column property="status" title="${statusHeader}" sortable="true" class="<%= estilo %>" />
-
-	<spring:message code="notification.reason" var="reasonWhyHeader" />
-	<display:column property="reasonWhy" title="${reasonWhyHeader}" sortable="true" class="<%= estilo %>" />
-
-	<spring:message code="notification.creditCard.holderName" var="creditCardHeader" />
-	<display:column property="creditCard.holderName" title="${creditCardHeader}" sortable="true" class="<%= estilo %>" />
+	<spring:message code="notification.gauge" var="gaugeHeader" />
+	<display:column property="gauge" title="${gaugeHeader}" sortable="true" class="<%= estilo %>" />
 	
-	<spring:message code="notification.trip1" var="trip1" />
-	<display:column title="${trip1}" class="<%= estilo %>" />
+	<spring:message code="notification.trip" var="tripHeader" />
+	<display:column property="trip.title" title="${tripHeader}" />
+	
+	<!-- Mostrar el link para editar -->
+	<jstl:if test="${showEditCreateLink}">
+	<security:authorize access="hasRole('MANAGER')">	
+	<spring:message code="notification.edit" var="Edit" />
+		<display:column title="${Edit}" sortable="true">
+				<spring:url value="notification/manager_/edit.do" var="editURL">
+					<spring:param name="notificationId" value="${row.id}" />
+				</spring:url>
+				<a href="${editURL}"><spring:message code="notification.edit" /></a>
+		</display:column>		
+	</security:authorize>
+	</jstl:if>
 
 </display:table>
+
+<!-- Mostrar el link para crear -->
+<jstl:if test="${showEditCreateLink}">
+	<security:authorize access="hasRole('MANAGER')">
+
+		<div>
+			<a href="notification/manager_/create.do"> 
+				<spring:message	code="notification.create" />
+			</a>
+		</div>
+	</security:authorize>
+</jstl:if>

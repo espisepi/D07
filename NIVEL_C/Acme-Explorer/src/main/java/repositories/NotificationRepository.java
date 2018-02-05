@@ -23,4 +23,13 @@ public interface NotificationRepository extends JpaRepository<Notification, Inte
 	@Query("select t from Trip t join t.notifications n where n.id=?1")
 	Trip findTripWithThisNotification(int notificationId);
 
+	@Query("select t.notifications from Trip t where t.id=?1")
+	Collection<Notification> findNotificationsWithTripId(int tripId);
+
+	@Query("select t from Manager m join m.trips t where m.id=?1")
+	Collection<Trip> findTripsWithManagerId(int managerId);
+
+	@Query("select n from Notification n where n.trip.manager.id=?1")
+	Collection<Notification> findByManagerId(int managerId);
+
 }
