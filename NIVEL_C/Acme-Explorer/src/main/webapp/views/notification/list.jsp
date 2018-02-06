@@ -41,8 +41,8 @@
 
 	</jstl:choose>
 	
-	<spring:message code="notification.ticker" var="tickerHeader" />
-	<display:column property="ticker" title="${tickerHeader}" sortable="true" />
+	<spring:message code="notification.code" var="codeHeader" />
+	<display:column property="code" title="${codeHeader}" sortable="true" />
 	
 	<spring:message code="notification.format.date" var="pattern"></spring:message>
 	<spring:message code="notification.moment" var="momentHeader" />

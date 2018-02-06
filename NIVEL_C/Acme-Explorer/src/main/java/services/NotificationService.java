@@ -39,41 +39,41 @@ public class NotificationService {
 	public Notification create() {
 		Notification result;
 		Manager managerPrincipal;
-		String ticker;
+		String code;
 
 		result = new Notification();
-		ticker = this.generatedTicker();
+		code = this.generatedCode();
 
 		managerPrincipal = this.managerService.findByPrincipal();
 		Assert.notNull(managerPrincipal);
-		result.setTicker(ticker);
+		result.setCode(code);
 
 		return result;
 	}
 
-	public String generatedTicker() {
+	public String generatedCode() {
 
 		Calendar calendar;
 
 		calendar = Calendar.getInstance();
-		String ticker;
+		String code;
 		String dias;
 		String mes;
-		ticker = "";
+		code = "";
 
-		//ticker = String.valueOf(calendar.get(Calendar.YEAR)).substring(2) + String.valueOf(calendar.get(Calendar.MONTH) + 1);
+		//code = String.valueOf(calendar.get(Calendar.YEAR)).substring(2) + String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		dias = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 		mes = String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		if (dias.length() <= 1)
-			ticker = ticker + "0" + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+			code = code + "0" + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 		else
-			ticker = ticker + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+			code = code + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 
 		if (mes.length() <= 1)
-			ticker = ticker + "0" + String.valueOf(calendar.get(Calendar.MONTH) + 1);
+			code = code + "0" + String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		else
-			ticker = ticker + String.valueOf(calendar.get(Calendar.MONTH) + 1);
-		ticker = ticker + String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
+			code = code + String.valueOf(calendar.get(Calendar.MONTH) + 1);
+		code = code + String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
 		final char[] arr = new char[] {
 			'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 		};
@@ -84,9 +84,9 @@ public class NotificationService {
 
 		}
 
-		ticker = ticker + "-" + cadenaAleatoria;
+		code = code + "-" + cadenaAleatoria;
 
-		return ticker;
+		return code;
 	}
 
 	public Collection<Notification> findAll() {

@@ -25,7 +25,7 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	<form:hidden path="ticker" />
+	<form:hidden path="code" />
 	
 	<form:label path="gauge">
 		<spring:message code="notification.gauge" />:

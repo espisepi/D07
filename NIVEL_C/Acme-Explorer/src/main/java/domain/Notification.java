@@ -23,7 +23,7 @@ public class Notification extends DomainEntity {
 
 	// Attributes -------------------------------------------
 
-	private String	ticker;
+	private String	code;
 	private int		gauge;
 	private Date	moment;
 
@@ -31,12 +31,12 @@ public class Notification extends DomainEntity {
 	@NotBlank
 	@Column(unique = true)
 	//@Pattern(regexp = "^\\d{2}(0[1-9]{1}|1[0-2]{1})((0|1|2)\\d{1}|3[0-1]{1})\\-[A-Z]{4}$")
-	public String getTicker() {
-		return this.ticker;
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setTicker(final String ticker) {
-		this.ticker = ticker;
+	public void setCode(final String code) {
+		this.code = code;
 	}
 
 	@NotNull
