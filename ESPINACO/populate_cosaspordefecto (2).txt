@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2017 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- configurationSystem -->
+
+	<bean id="configurationSystem" class="domain.ConfigurationSystem">
+		<property name="maxNumberFinder" value="10" />
+		<property name="VAT" value="0.21" />
+		<property name="cacheMaxTime" value="1" />
+		<property name="defaultPhone" value="+34" />
+		<property name="banner"
+			value="http://creek-tours.com/wp-content/uploads/Kenya-Tanzania-Family-Safari-banner.jpg" />
+		<property name="spamWords">
+			<list>
+				<value>viagra</value>
+				<value>cialis</value>
+				<value>sex</value>
+				<value>jes extender</value>
+			</list>
+		</property>
+		<property name="defaultCategories">
+			<list>
+				<ref bean="category" />
+				<ref bean="safari" />
+				<ref bean="climbing" />
+				<ref bean="mountainClimbing" />
+				<ref bean="riverClimbing" />
+				<ref bean="water" />
+				<ref bean="lake" />
+				<ref bean="riverWater" />
+				<ref bean="ground" />
+				<ref bean="savana" />
+				<ref bean="mountainGround" />
+			</list>
+		</property>
+		<property name="defaultTags">
+			<list>
+				<ref bean="tag1" />
+				<ref bean="tag2" />
+				<ref bean="tag3" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- User accounts -->
+
+	<bean id="userAccountAdmin1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMINISTRATOR" />
+				</bean>
+			</list>
+		</property>
+		<property name="activated" value="True"></property>
+	</bean>
+
+	<!-- Default folder of administrator -->
+
+	<bean id="InBoxAdministrator1" class="domain.MessageFolder">
+		<property name="name" value="In box" />
+		<property name="modifiable" value="false" />
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="OutBoxAdministrator1" class="domain.MessageFolder">
+		<property name="name" value="Out box" />
+		<property name="modifiable" value="false" />
+		<property name="messages">
+			<list>
+			<!-- <ref bean="message1Copy"/> -->
+			</list>
+		</property>
+	</bean>
+
+	<bean id="NotificationBoxAdministrator1" class="domain.MessageFolder">
+		<property name="name" value="Notification box" />
+		<property name="modifiable" value="false" />
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TrashBoxAdministrator1" class="domain.MessageFolder">
+		<property name="name" value="Trash box" />
+		<property name="modifiable" value="false" />
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="SpamBoxAdministrator1" class="domain.MessageFolder">
+		<property name="name" value="Spam box" />
+		<property name="modifiable" value="false" />
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="name" value="Admin" />
+		<property name="surname" value="Administrator1 Surnames" />
+		<property name="email" value="Administrator1@administrator.com" />
+		<property name="phone" value="+34662657322" />
+		<property name="address" value="Administrator address" />
+		<property name="userAccount" ref="userAccountAdmin1" />
+		
+		<property name="messagesFolders">
+			<list>
+				<ref bean="InBoxAdministrator1" />
+				<ref bean="OutBoxAdministrator1" />
+				<ref bean="NotificationBoxAdministrator1" />
+				<ref bean="TrashBoxAdministrator1" />
+				<ref bean="SpamBoxAdministrator1" />
+
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+
+
+ 	<bean id="tag1" class="domain.Tag">
+		<property name="name" value="country" />
+		<property name="values">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="tag2" class="domain.Tag">
+		<property name="name" value="expertise" />
+		<property name="values">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="tag3" class="domain.Tag">
+		<property name="name" value="dangerousness" />
+		<property name="values">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	
+<!-- LEGAL TEXT -->
+
+	<bean id="legalText4" class="domain.LegalText">
+		<property name="title" value="title english" />
+		<property name="body" value=" LEGAL TEXT
+		2. Acceptance of these Conditions
+		The fact that you access this website implies that 
+		you know, understand and accept the Terms of Use in the version existing 
+		at the time of access." />
+		<property name="lawsNumber" value="4"></property>
+		<property name="moment" value="2017/11/23 23:59"></property>
+		<property name="draftMode" value="false"></property>
+		<property name="trips">
+			<list>
+				<!-- <ref bean="trip4"></ref> -->
+			</list>
+		</property>
+	</bean>
+	
+		<bean id="legalText5" class="domain.LegalText">
+		<property name="title" value="title español" />
+		<property name="body" value="AVISO LEGAL
+		2. Aceptación de estas Condiciones
+		El hecho de que acceda a este sitio Web implica que conoce, entiende y acepta las Condiciones de 
+		en la versión existente en el momento del acceso." />
+		<property name="lawsNumber" value="4"></property>
+		<property name="moment" value="2017/11/23 23:59"></property>
+		<property name="draftMode" value="false"></property>
+		<property name="trips">
+			<list>
+				<!-- <ref bean="trip5"></ref> -->
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="lake" class="domain.Category">
+		<property name="name" value="Lake" />
+		<property name="fatherCategory">
+			<ref bean="water" />
+		</property>
+		<property name="subCategories">
+			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!--Categoria Savana -->
+	<bean id="savana" class="domain.Category">
+		<property name="name" value="Savana" />
+		<property name="fatherCategory">
+			<ref bean="ground" />
+		</property>
+		<property name="subCategories">
+			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!--Categoria River -->
+	<bean id="riverClimbing" class="domain.Category">
+		<property name="name" value="River" />
+		<property name="fatherCategory">
+			<ref bean="climbing" />
+		</property>
+		<property name="subCategories">
+			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="riverWater" class="domain.Category">
+		<property name="name" value="River" />
+		<property name="fatherCategory">
+			<ref bean="water" />
+		</property>
+		<property name="subCategories">
+			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<!--Categoria Mountain -->
+	<bean id="mountainClimbing" class="domain.Category">
+		<property name="name" value="Mountain" />
+		<property name="fatherCategory">
+			<ref bean="climbing" />
+		</property>
+		<property name="subCategories">
+			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="mountainGround" class="domain.Category">
+		<property name="name" value="Mountain" />
+		<property name="fatherCategory">
+			<ref bean="ground" />
+		</property>
+		<property name="subCategories">
+			<list>
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+							</list>
+		</property>
+	</bean>
+
+	<!--Categoria Hija de Safari-> Water -->
+	<bean id="water" class="domain.Category">
+		<property name="name" value="Water" />
+		<property name="fatherCategory">
+			<ref bean="safari" />
+		</property>
+		<property name="subCategories">
+			<list>
+				<ref bean="lake" />
+				<ref bean="riverWater" />
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!--Categoria Hija de Safari -> Ground -->
+	<bean id="ground" class="domain.Category">
+		<property name="name" value="Ground" />
+		<property name="fatherCategory">
+			<ref bean="safari" />
+		</property>
+		<property name="subCategories">
+			<list>
+				<ref bean="savana" />
+				<ref bean="mountainGround" />
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+			<!-- 	<ref bean="trip1"></ref> -->
+			</list>
+		</property>
+	</bean>
+
+
+
+	<!--Categoria Climbing -->
+	<bean id="climbing" class="domain.Category">
+		<property name="name" value="Climbing" />
+		<property name="fatherCategory">
+			<ref bean="category" />
+		</property>
+		<property name="subCategories">
+			<list>
+				<ref bean="mountainClimbing" />
+				<ref bean="riverClimbing" />
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!--Categoria Safari -->
+	<bean id="safari" class="domain.Category">
+		<property name="name" value="Safari" />
+		<property name="fatherCategory">
+			<ref bean="category" />
+		</property>
+		<property name="subCategories">
+			<list>
+				<ref bean="ground" />
+				<ref bean="water" />
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<!--Categoria Padre De Todas -->
+	<bean id="category" class="domain.Category">
+		<property name="name" value="CATEGORY" />
+		<property name="subCategories">
+			<list>
+				<ref bean="safari" />
+				<ref bean="climbing" />
+			</list>
+		</property>
+		<property name="trips">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+</beans>
