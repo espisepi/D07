@@ -301,6 +301,18 @@
 					<li class="arrow"></li>
 					<li><a href="category/list.do"><spring:message code="master.page.administrator.categories" /></a></li>
 				</ul></li>
+				
+				<!-- COLUMNA DE NOTIFICATIONS EN MANAGER -->
+				<li><a class="fNiv"><spring:message
+						code="master.page.notification" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="notification/manager_/list.do"><spring:message code="master.page.notification" /></a></li>
+				</ul></li>
+				
+				
+				
+				
 		</security:authorize>
 
 
