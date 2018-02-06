@@ -29,7 +29,13 @@
 	<p><spring:message code="trip.finishDate" />:  <jstl:out value="${trip.finishDate}"></jstl:out></p>	
 	<p><spring:message code="trip.manager.name" />:  <jstl:out value="${trip.manager.name}"></jstl:out></p>
 		
-	
+	<!-- AÑADIR BOTON DE NOTIFICATION -->
+	<spring:message code="notification.list" var="notifications" />
+		<spring:url value="notification/list.do" var="notificationURL">
+			<spring:param name="tripId" value="${trip.id }" />
+		</spring:url>
+			<a href="${notificationURL}"><spring:message code="notification.list" /></a>
+
 	<h2><spring:message code="trip.ranger" /></h2>	
 	<display:table name="ranger" id="row" class="displaytag">
 		<spring:message code="trip.ranger" var="titleHeader" />

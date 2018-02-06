@@ -51,8 +51,14 @@
 	<spring:message code="notification.gauge" var="gaugeHeader" />
 	<display:column property="gauge" title="${gaugeHeader}" sortable="true" class="<%= estilo %>" />
 	
-	<spring:message code="notification.trip" var="tripHeader" />
-	<display:column property="trip.title" title="${tripHeader}" />
+	<!-- MOSTRAR EL LINK DE LA TRIP ASOCIADA -->
+	<spring:message code="notification.trip" var="trip" />
+	<display:column title="${trip}">
+		<spring:url value="trip/display.do" var="tripURL">
+			<spring:param name="tripId" value="${row.trip.id }" />
+		</spring:url>
+			<a href="${tripURL}"><spring:message code="notification.trip.display" /></a>
+	</display:column>
 	
 	<!-- Mostrar el link para editar -->
 	<jstl:if test="${showEditCreateLink}">
