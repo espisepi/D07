@@ -62,10 +62,10 @@
 	
 	<!-- Mostrar el link para editar -->
 	<jstl:if test="${showEditCreateLink}">
-	<security:authorize access="hasRole('MANAGER')">	
+	<security:authorize access="hasRole('EXPLORER')">	
 	<spring:message code="notification.edit" var="Edit" />
 		<display:column title="${Edit}" sortable="true">
-				<spring:url value="notification/manager_/edit.do" var="editURL">
+				<spring:url value="notification/explorer/edit.do" var="editURL">
 					<spring:param name="notificationId" value="${row.id}" />
 				</spring:url>
 				<a href="${editURL}"><spring:message code="notification.edit" /></a>
@@ -77,10 +77,10 @@
 
 <!-- Mostrar el link para crear -->
 <jstl:if test="${showEditCreateLink}">
-	<security:authorize access="hasRole('MANAGER')">
+	<security:authorize access="hasRole('EXPLORER')">
 
 		<div>
-			<a href="notification/manager_/create.do"> 
+			<a href="notification/explorer/create.do"> 
 				<spring:message	code="notification.create" />
 			</a>
 		</div>

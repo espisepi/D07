@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
-import domain.Manager;
+import domain.Explorer;
 import domain.Notification;
 import domain.Trip;
 
@@ -32,7 +32,7 @@ public class NotificationServiceTest extends AbstractTest {
 	private NotificationService	notificationService;
 
 	@Autowired
-	private ManagerService		managerService;
+	private ExplorerService		explorerService;
 
 	@Autowired
 	private TripService			tripService;
@@ -44,25 +44,24 @@ public class NotificationServiceTest extends AbstractTest {
 	// Test -----------------------------------------------
 	@Test
 	public void testSave() {
-		super.authenticate("manager1");
+		super.authenticate("explorer1");
 
 		Notification result;
-		Manager managerPrincipal;
+		Explorer explorerPrincipal;
 
-		managerPrincipal = this.managerService.findByPrincipal();
+		explorerPrincipal = this.explorerService.findByPrincipal();
 		result = this.notificationService.create();
 		result.setGauge(3);
-		result.setTrip(managerPrincipal.getTrips().iterator().next());
+		result.setTrip(explorerPrincipal.getApplicationsFor().iterator().next().getTrip());
 		result = this.notificationService.save(result);
 		this.entityManager.flush();
 		//Compruebo si se cumple la navegabilidad en ambas partes
-		Assert.isTrue(managerPrincipal.getTrips().iterator().next().getNotifications().contains(result));
-		Assert.isTrue(managerPrincipal.getTrips().contains(result.getTrip()));
+		Assert.isTrue(explorerPrincipal.getApplicationsFor().iterator().next().getTrip().getNotifications().contains(result));
 	}
 
 	@Test
 	public void testDelete() {
-		super.authenticate("manager1");
+		super.authenticate("explorer1");
 
 		this.notificationService.delete(this.notificationService.findOne(super.getEntityId("notification1")));
 		this.entityManager.flush();
@@ -70,7 +69,7 @@ public class NotificationServiceTest extends AbstractTest {
 
 	@Test
 	public void testDeleteTripWithNotifications() {
-		super.authenticate("manager1");
+		super.authenticate("explorer1");
 		Trip tripDelete;
 		Date publicationDateAfterNow;
 

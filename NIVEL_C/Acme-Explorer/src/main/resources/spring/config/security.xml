@@ -84,7 +84,7 @@
 		
 		
 		<security:intercept-url pattern="/notification/list.do" access="permitAll"/>
-		<security:intercept-url pattern="/notification/manager_/**" access="hasRole('MANAGER')"/>
+		<security:intercept-url pattern="/notification/explorer/**" access="hasRole('EXPLORER')"/>
 			
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 

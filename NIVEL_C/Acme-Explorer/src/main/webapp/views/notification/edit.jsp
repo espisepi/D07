@@ -62,11 +62,11 @@
 		
 	<jstl:if test="${notification.id != 0}">
 		<input type="submit" name="delete"
-			value="<spring:message code="messageFolder.delete" />"
+			value="<spring:message code="notification.delete" />"
 			onclick="javascript: return confirm('<spring:message code="notification.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	
 	<input type="button" name="cancel"
 		value="<spring:message code="notification.cancel" />"
-		onclick="javascript:  window.location.replace('notification/manager_/list.do');" />
+		onclick="javascript:  window.location.replace('notification/explorer/list.do');" />
 </form:form>

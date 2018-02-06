@@ -1,5 +1,5 @@
 
-package controllers.manager;
+package controllers.explorer;
 
 import java.util.Collection;
 
@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.ManagerService;
+import services.ExplorerService;
 import services.NotificationService;
 import controllers.AbstractController;
-import domain.Manager;
+import domain.Explorer;
 import domain.Notification;
 import domain.Trip;
 
 @Controller
-@RequestMapping("/notification/manager_")
-public class NotificationManagerController extends AbstractController {
+@RequestMapping("/notification/explorer")
+public class NotificationExplorerController extends AbstractController {
 
 	// Services ---------------------------------------------------------------
 
@@ -31,11 +31,11 @@ public class NotificationManagerController extends AbstractController {
 	private NotificationService	notificationService;
 
 	@Autowired
-	private ManagerService		managerService;
+	private ExplorerService		explorerService;
 
 
 	// Constructors -----------------------------------------------------------
-	public NotificationManagerController() {
+	public NotificationExplorerController() {
 
 	}
 
@@ -46,16 +46,16 @@ public class NotificationManagerController extends AbstractController {
 
 		ModelAndView result;
 		final Collection<Notification> notifications;
-		Manager managerPrincipal;
+		Explorer explorerPrincipal;
 
-		//Se muestran las notificaciones de ese manager
-		managerPrincipal = this.managerService.findByPrincipal();
-		notifications = this.notificationService.findByManagerId(managerPrincipal.getId());
+		//Se muestran las notificaciones de ese explorer
+		explorerPrincipal = this.explorerService.findByPrincipal();
+		notifications = this.notificationService.findByExplorerId(explorerPrincipal.getId());
 
 		result = new ModelAndView("notification/list");
 		result.addObject("notifications", notifications);
 		result.addObject("showEditCreateLink", true);
-		result.addObject("requestURI", "notification/manager_/list.do");
+		result.addObject("requestURI", "notification/explorer/list.do");
 
 		return result;
 	}
@@ -83,10 +83,10 @@ public class NotificationManagerController extends AbstractController {
 		notification = this.notificationService.findOne(notificationId);
 		Assert.notNull(notification);
 
-		//Comprobamos que esa notificacion que se quiere editar pertenece al manager logueado
-		Manager managerPrincipal;
-		managerPrincipal = this.managerService.findByPrincipal();
-		Assert.isTrue(notification.getTrip().getManager().equals(managerPrincipal));
+		//Comprobamos que esa notificacion que se quiere editar pertenece al explorer logueado
+		Explorer explorerPrincipal;
+		explorerPrincipal = this.explorerService.findByPrincipal();
+		Assert.isTrue(this.notificationService.findByExplorerId(explorerPrincipal.getId()).contains(notification));
 
 		result = this.createEditModelAndView(notification);
 
@@ -106,7 +106,7 @@ public class NotificationManagerController extends AbstractController {
 		else
 			try {
 				this.notificationService.save(notification);
-				result = new ModelAndView("redirect:/notification/manager_/list.do");
+				result = new ModelAndView("redirect:/notification/explorer/list.do");
 			} catch (final Throwable oops) {
 				result = this.createEditModelAndView(notification, "notification.commit.error");
 			}
@@ -146,17 +146,17 @@ public class NotificationManagerController extends AbstractController {
 
 		ModelAndView result;
 		Collection<Trip> trips;
-		Manager managerPrincipal;
+		Explorer explorerPrincipal;
 
-		//Para hacer un select con todas las Trips de ese manager
-		managerPrincipal = this.managerService.findByPrincipal();
-		trips = this.notificationService.findTripsWithManagerId(managerPrincipal.getId());
+		//Para hacer un select con todas las Trips de ese explorer
+		explorerPrincipal = this.explorerService.findByPrincipal();
+		trips = this.notificationService.findTripsWithExplorerId(explorerPrincipal.getId());
 
 		result = new ModelAndView("notification/edit");
 		result.addObject("notification", notification);
 		result.addObject("trips", trips);
 		result.addObject("message", messageCode);
-		result.addObject("RequestURI", "notification/manager_/edit.do");
+		result.addObject("RequestURI", "notification/explorer/edit.do");
 
 		return result;
 

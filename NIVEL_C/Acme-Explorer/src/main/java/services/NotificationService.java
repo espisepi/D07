@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.NotificationRepository;
-import domain.Manager;
+import domain.Explorer;
 import domain.Notification;
 import domain.Trip;
 
@@ -25,7 +25,7 @@ public class NotificationService {
 
 	// Supporting services ----------------------------------------------------
 	@Autowired
-	private ManagerService			managerService;
+	private ExplorerService			explorerService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -38,14 +38,14 @@ public class NotificationService {
 
 	public Notification create() {
 		Notification result;
-		Manager managerPrincipal;
+		Explorer explorerPrincipal;
 		String code;
 
 		result = new Notification();
 		code = this.generatedCode();
 
-		managerPrincipal = this.managerService.findByPrincipal();
-		Assert.notNull(managerPrincipal);
+		explorerPrincipal = this.explorerService.findByPrincipal();
+		Assert.notNull(explorerPrincipal);
 		result.setCode(code);
 
 		return result;
@@ -121,13 +121,11 @@ public class NotificationService {
 		Assert.notNull(notification != null);
 		Assert.isTrue(notification.getId() != 0);
 		Assert.isTrue(this.notificationRepository.exists(notification.getId()));
-		Trip trip;
-		Manager managerPrincipal;
+		Explorer explorerPrincipal;
 
-		trip = this.findTripWithThisNotification(notification.getId());
-		//Comprobamos si la notification pertenece al manager logeado
-		managerPrincipal = this.managerService.findByPrincipal();
-		Assert.isTrue(trip.getManager().equals(managerPrincipal));
+		//Comprobamos si la notification pertenece al explorer logeado
+		explorerPrincipal = this.explorerService.findByPrincipal();
+		Assert.isTrue(this.findByExplorerId(explorerPrincipal.getId()).contains(notification));
 		//Borramos la notificacion de la lista de notificaciones de Trip (No haria falta en bidireccional
 		//trip.getNotifications().remove(notification);
 
@@ -145,10 +143,10 @@ public class NotificationService {
 		return result;
 	}
 
-	public Collection<Manager> findManagersWithMoreNotifications() {
-		Collection<Manager> result;
+	public Collection<Explorer> findExplorersWithMoreNotifications() {
+		Collection<Explorer> result;
 
-		result = this.notificationRepository.findManagersWithMoreNotifications();
+		result = this.notificationRepository.findExplorersWithMoreNotifications();
 
 		return result;
 	}
@@ -170,18 +168,18 @@ public class NotificationService {
 		return result;
 	}
 
-	public Collection<Trip> findTripsWithManagerId(final int managerId) {
+	public Collection<Trip> findTripsWithExplorerId(final int explorerId) {
 		Collection<Trip> result;
 
-		result = this.notificationRepository.findTripsWithManagerId(managerId);
+		result = this.notificationRepository.findTripsWithExplorerId(explorerId);
 
 		return result;
 	}
 
-	public Collection<Notification> findByManagerId(final int managerId) {
+	public Collection<Notification> findByExplorerId(final int explorerId) {
 		Collection<Notification> result;
 
-		result = this.notificationRepository.findByManagerId(managerId);
+		result = this.notificationRepository.findByExplorerId(explorerId);
 
 		return result;
 	}
