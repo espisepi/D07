@@ -62,7 +62,7 @@
 		
 	<jstl:if test="${notification.id != 0}">
 		<input type="submit" name="delete"
-			value="<spring:message code="messageFolder.delete" />"
+			value="<spring:message code="notification.delete" />"
 			onclick="javascript: return confirm('<spring:message code="notification.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	

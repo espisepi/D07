@@ -121,13 +121,11 @@ public class NotificationService {
 		Assert.notNull(notification != null);
 		Assert.isTrue(notification.getId() != 0);
 		Assert.isTrue(this.notificationRepository.exists(notification.getId()));
-		Trip trip;
 		Manager managerPrincipal;
 
-		trip = this.findTripWithThisNotification(notification.getId());
 		//Comprobamos si la notification pertenece al manager logeado
 		managerPrincipal = this.managerService.findByPrincipal();
-		Assert.isTrue(trip.getManager().equals(managerPrincipal));
+		Assert.isTrue(this.findByManagerId(managerPrincipal.getId()).contains(notification));
 		//Borramos la notificacion de la lista de notificaciones de Trip (No haria falta en bidireccional
 		//trip.getNotifications().remove(notification);
 

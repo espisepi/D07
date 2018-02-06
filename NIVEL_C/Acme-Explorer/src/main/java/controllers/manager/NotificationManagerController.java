@@ -86,7 +86,7 @@ public class NotificationManagerController extends AbstractController {
 		//Comprobamos que esa notificacion que se quiere editar pertenece al manager logueado
 		Manager managerPrincipal;
 		managerPrincipal = this.managerService.findByPrincipal();
-		Assert.isTrue(notification.getTrip().getManager().equals(managerPrincipal));
+		Assert.isTrue(this.notificationService.findByManagerId(managerPrincipal.getId()).contains(notification));
 
 		result = this.createEditModelAndView(notification);
 
