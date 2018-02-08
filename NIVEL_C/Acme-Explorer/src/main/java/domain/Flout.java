@@ -69,7 +69,6 @@ public class Flout extends DomainEntity {
 		this.gauge = gauge;
 	}
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getMoment() {

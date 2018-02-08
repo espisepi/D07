@@ -23,7 +23,7 @@ public interface FloutRepository extends JpaRepository<Flout, Integer> {
 	@Query("select t from Trip t join t.flouts n where n.id=?1")
 	Trip findTripWithThisFlout(int floutId);
 
-	@Query("select t.flouts from Trip t where t.id=?1")
+	@Query("select f from Trip t join t.flouts f where t.id=?1 and (f.moment<=CURRENT_TIMESTAMP or f.moment=null)")
 	Collection<Flout> findFloutsWithTripId(int tripId);
 
 	@Query("select t from Manager m join m.trips t where m.id=?1")

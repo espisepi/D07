@@ -25,7 +25,14 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	<form:hidden path="number" />
+	<%-- <form:hidden path="number" /> --%>
+	
+	<form:label path="number">
+		<spring:message code="flout.number" />:
+	</form:label>
+	<form:input path="number" readonly="true"/>
+	<form:errors cssClass="error" path="number" />
+	<br />
 	
 	<form:label path="title">
 		<spring:message code="flout.title" />:

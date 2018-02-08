@@ -108,7 +108,10 @@ public class FloutManagerController extends AbstractController {
 				this.floutService.save(flout);
 				result = new ModelAndView("redirect:/flout/manager_/list.do");
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(flout, "flout.commit.error");
+				if (oops.getMessage().equals("moment in past"))
+					result = this.createEditModelAndView(flout, "flout.commit.past.error");
+				else
+					result = this.createEditModelAndView(flout, "flout.commit.error");
 			}
 
 		return result;

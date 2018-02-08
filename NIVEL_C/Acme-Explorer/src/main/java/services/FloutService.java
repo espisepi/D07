@@ -3,6 +3,7 @@ package services;
 
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -112,6 +113,8 @@ public class FloutService {
 		Assert.notNull(flout);
 
 		Flout result;
+
+		Assert.isTrue((flout.getMoment() == null) || flout.getMoment().after(new Date()), "moment in past");
 
 		result = this.floutRepository.save(flout);
 
