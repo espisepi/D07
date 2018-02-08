@@ -12,7 +12,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -32,7 +34,7 @@ public class Flout extends DomainEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	//@Pattern(regexp = "^\\d{2}(0[1-9]{1}|1[0-2]{1})((0|1|2)\\d{1}|3[0-1]{1})-[A-Z]{4}$")
+	@Pattern(regexp = "^\\w{2}\\d{2}(0[1-9]{1}|1[0-2]{1})((0|1|2)\\d{1}|3[0-1]{1})\\w{2}$")
 	public String getNumber() {
 		return this.number;
 	}
@@ -42,6 +44,7 @@ public class Flout extends DomainEntity {
 	}
 
 	@NotBlank
+	@Length(max = 100)
 	public String getTitle() {
 		return this.title;
 	}
@@ -51,6 +54,7 @@ public class Flout extends DomainEntity {
 	}
 
 	@NotBlank
+	@Length(max = 250)
 	public String getDescription() {
 		return this.description;
 	}

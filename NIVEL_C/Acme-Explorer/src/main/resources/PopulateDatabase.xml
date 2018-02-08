@@ -2960,7 +2960,7 @@
 	<!-- NOTIFICATIONS -->
 	
 	<bean id="flout1" class="domain.Flout">
-		<property name="number" value="170112-WWWW"></property>
+		<property name="number" value="ab180202bc"></property>
 		<property name="title" value="title 1 flout"></property>
 		<property name="description" value="description 1 flout"></property>
 		<property name="gauge" value="1"></property>

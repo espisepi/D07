@@ -65,6 +65,19 @@ public class FloutService {
 		//number = String.valueOf(calendar.get(Calendar.YEAR)).substring(2) + String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		dias = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 		mes = String.valueOf(calendar.get(Calendar.MONTH) + 1);
+
+		//Añadimos las dos primeras letras
+		final char[] arr = new char[] {
+			'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+		};
+		String cadenaAleatoria = "";
+		for (Integer i = 0; i <= 1; i++) {
+			final char elegido = arr[(int) (Math.random() * 26)];
+			cadenaAleatoria = cadenaAleatoria + elegido;
+
+		}
+		number = number + cadenaAleatoria;
+
 		if (dias.length() <= 1)
 			number = number + "0" + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 		else
@@ -75,17 +88,15 @@ public class FloutService {
 		else
 			number = number + String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		number = number + String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
-		final char[] arr = new char[] {
-			'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-		};
-		String cadenaAleatoria = "";
-		for (Integer i = 0; i <= 3; i++) {
+
+		cadenaAleatoria = "";
+		for (Integer i = 0; i <= 1; i++) {
 			final char elegido = arr[(int) (Math.random() * 26)];
 			cadenaAleatoria = cadenaAleatoria + elegido;
 
 		}
 
-		number = number + "-" + cadenaAleatoria;
+		number = number + cadenaAleatoria;
 
 		return number;
 	}
