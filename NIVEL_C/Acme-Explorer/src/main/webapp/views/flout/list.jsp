@@ -41,8 +41,14 @@
 
 	</jstl:choose>
 	
-	<spring:message code="flout.code" var="codeHeader" />
-	<display:column property="code" title="${codeHeader}" sortable="true" />
+	<spring:message code="flout.number" var="numberHeader" />
+	<display:column property="number" title="${numberHeader}" sortable="true" />
+	
+	<spring:message code="flout.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}" sortable="true" />
+	
+	<spring:message code="flout.description" var="descriptionHeader" />
+	<display:column property="description" title="${descriptionHeader}" sortable="true" />
 	
 	<spring:message code="flout.format.date" var="pattern"></spring:message>
 	<spring:message code="flout.moment" var="momentHeader" />

@@ -23,7 +23,9 @@ public class Flout extends DomainEntity {
 
 	// Attributes -------------------------------------------
 
-	private String	code;
+	private String	number;
+	private String	title;
+	private String	description;
 	private int		gauge;
 	private Date	moment;
 
@@ -31,12 +33,30 @@ public class Flout extends DomainEntity {
 	@NotBlank
 	@Column(unique = true)
 	//@Pattern(regexp = "^\\d{2}(0[1-9]{1}|1[0-2]{1})((0|1|2)\\d{1}|3[0-1]{1})-[A-Z]{4}$")
-	public String getCode() {
-		return this.code;
+	public String getNumber() {
+		return this.number;
 	}
 
-	public void setCode(final String code) {
-		this.code = code;
+	public void setNumber(final String number) {
+		this.number = number;
+	}
+
+	@NotBlank
+	public String getTitle() {
+		return this.title;
+	}
+
+	public void setTitle(final String title) {
+		this.title = title;
+	}
+
+	@NotBlank
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(final String description) {
+		this.description = description;
 	}
 
 	@NotNull

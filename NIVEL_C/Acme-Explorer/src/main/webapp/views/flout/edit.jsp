@@ -25,7 +25,21 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	<form:hidden path="code" />
+	<form:hidden path="number" />
+	
+	<form:label path="title">
+		<spring:message code="flout.title" />:
+	</form:label>
+	<form:input path="title" />
+	<form:errors cssClass="error" path="title" />
+	<br />
+	
+	<form:label path="description">
+		<spring:message code="flout.description" />:
+	</form:label>
+	<form:input path="description" />
+	<form:errors cssClass="error" path="description" />
+	<br />
 	
 	<form:label path="gauge">
 		<spring:message code="flout.gauge" />:

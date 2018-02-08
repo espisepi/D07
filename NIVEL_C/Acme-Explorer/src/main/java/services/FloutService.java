@@ -39,41 +39,41 @@ public class FloutService {
 	public Flout create() {
 		Flout result;
 		Manager managerPrincipal;
-		String code;
+		String number;
 
 		result = new Flout();
-		code = this.generatedCode();
+		number = this.generatedNumber();
 
 		managerPrincipal = this.managerService.findByPrincipal();
 		Assert.notNull(managerPrincipal);
-		result.setCode(code);
+		result.setNumber(number);
 
 		return result;
 	}
 
-	public String generatedCode() {
+	public String generatedNumber() {
 
 		Calendar calendar;
 
 		calendar = Calendar.getInstance();
-		String code;
+		String number;
 		String dias;
 		String mes;
-		code = "";
+		number = "";
 
-		//code = String.valueOf(calendar.get(Calendar.YEAR)).substring(2) + String.valueOf(calendar.get(Calendar.MONTH) + 1);
+		//number = String.valueOf(calendar.get(Calendar.YEAR)).substring(2) + String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		dias = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 		mes = String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		if (dias.length() <= 1)
-			code = code + "0" + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+			number = number + "0" + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 		else
-			code = code + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+			number = number + String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 
 		if (mes.length() <= 1)
-			code = code + "0" + String.valueOf(calendar.get(Calendar.MONTH) + 1);
+			number = number + "0" + String.valueOf(calendar.get(Calendar.MONTH) + 1);
 		else
-			code = code + String.valueOf(calendar.get(Calendar.MONTH) + 1);
-		code = code + String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
+			number = number + String.valueOf(calendar.get(Calendar.MONTH) + 1);
+		number = number + String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
 		final char[] arr = new char[] {
 			'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 		};
@@ -84,9 +84,9 @@ public class FloutService {
 
 		}
 
-		code = code + "-" + cadenaAleatoria;
+		number = number + "-" + cadenaAleatoria;
 
-		return code;
+		return number;
 	}
 
 	public Collection<Flout> findAll() {
