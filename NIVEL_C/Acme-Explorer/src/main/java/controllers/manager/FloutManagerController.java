@@ -14,28 +14,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.FloutService;
 import services.ManagerService;
-import services.NotificationService;
 import controllers.AbstractController;
+import domain.Flout;
 import domain.Manager;
-import domain.Notification;
 import domain.Trip;
 
 @Controller
-@RequestMapping("/notification/manager_")
-public class NotificationManagerController extends AbstractController {
+@RequestMapping("/flout/manager_")
+public class FloutManagerController extends AbstractController {
 
 	// Services ---------------------------------------------------------------
 
 	@Autowired
-	private NotificationService	notificationService;
+	private FloutService	floutService;
 
 	@Autowired
-	private ManagerService		managerService;
+	private ManagerService	managerService;
 
 
 	// Constructors -----------------------------------------------------------
-	public NotificationManagerController() {
+	public FloutManagerController() {
 
 	}
 
@@ -45,17 +45,17 @@ public class NotificationManagerController extends AbstractController {
 	public ModelAndView list() {
 
 		ModelAndView result;
-		final Collection<Notification> notifications;
+		final Collection<Flout> flouts;
 		Manager managerPrincipal;
 
 		//Se muestran las notificaciones de ese manager
 		managerPrincipal = this.managerService.findByPrincipal();
-		notifications = this.notificationService.findByManagerId(managerPrincipal.getId());
+		flouts = this.floutService.findByManagerId(managerPrincipal.getId());
 
-		result = new ModelAndView("notification/list");
-		result.addObject("notifications", notifications);
+		result = new ModelAndView("flout/list");
+		result.addObject("flouts", flouts);
 		result.addObject("showEditCreateLink", true);
-		result.addObject("requestURI", "notification/manager_/list.do");
+		result.addObject("requestURI", "flout/manager_/list.do");
 
 		return result;
 	}
@@ -64,10 +64,10 @@ public class NotificationManagerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView result;
-		Notification notification;
+		Flout flout;
 
-		notification = this.notificationService.create();
-		result = this.createEditModelAndView(notification);
+		flout = this.floutService.create();
+		result = this.createEditModelAndView(flout);
 
 		return result;
 	}
@@ -75,20 +75,20 @@ public class NotificationManagerController extends AbstractController {
 	//Editing-----------------
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int notificationId) {
+	public ModelAndView edit(@RequestParam final int floutId) {
 
 		ModelAndView result;
-		Notification notification;
+		Flout flout;
 
-		notification = this.notificationService.findOne(notificationId);
-		Assert.notNull(notification);
+		flout = this.floutService.findOne(floutId);
+		Assert.notNull(flout);
 
 		//Comprobamos que esa notificacion que se quiere editar pertenece al manager logueado
 		Manager managerPrincipal;
 		managerPrincipal = this.managerService.findByPrincipal();
-		Assert.isTrue(this.notificationService.findByManagerId(managerPrincipal.getId()).contains(notification));
+		Assert.isTrue(this.floutService.findByManagerId(managerPrincipal.getId()).contains(flout));
 
-		result = this.createEditModelAndView(notification);
+		result = this.createEditModelAndView(flout);
 
 		return result;
 
@@ -97,18 +97,18 @@ public class NotificationManagerController extends AbstractController {
 	//Saving-----------------
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Notification notification, final BindingResult binding) {
+	public ModelAndView save(@Valid final Flout flout, final BindingResult binding) {
 
 		ModelAndView result;
 
 		if (binding.hasErrors())
-			result = this.createEditModelAndView(notification);
+			result = this.createEditModelAndView(flout);
 		else
 			try {
-				this.notificationService.save(notification);
-				result = new ModelAndView("redirect:/notification/manager_/list.do");
+				this.floutService.save(flout);
+				result = new ModelAndView("redirect:/flout/manager_/list.do");
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(notification, "notification.commit.error");
+				result = this.createEditModelAndView(flout, "flout.commit.error");
 			}
 
 		return result;
@@ -117,32 +117,32 @@ public class NotificationManagerController extends AbstractController {
 
 	//Delete ---------------------
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "delete")
-	public ModelAndView delete(final Notification notification, final BindingResult binding) {
+	public ModelAndView delete(final Flout flout, final BindingResult binding) {
 		ModelAndView result;
 		if (binding.hasErrors())
-			result = this.createEditModelAndView(notification);
+			result = this.createEditModelAndView(flout);
 		else
 			try {
-				this.notificationService.delete(notification);
+				this.floutService.delete(flout);
 				result = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				result = this.createEditModelAndView(notification, "notification.commit.error");
+				result = this.createEditModelAndView(flout, "flout.commit.error");
 			}
 		return result;
 	}
 
 	//auxiliary------------------
 
-	protected ModelAndView createEditModelAndView(final Notification notification) {
+	protected ModelAndView createEditModelAndView(final Flout flout) {
 
-		Assert.notNull(notification);
+		Assert.notNull(flout);
 		ModelAndView result;
-		result = this.createEditModelAndView(notification, null);
+		result = this.createEditModelAndView(flout, null);
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Notification notification, final String messageCode) {
-		Assert.notNull(notification);
+	protected ModelAndView createEditModelAndView(final Flout flout, final String messageCode) {
+		Assert.notNull(flout);
 
 		ModelAndView result;
 		Collection<Trip> trips;
@@ -150,13 +150,13 @@ public class NotificationManagerController extends AbstractController {
 
 		//Para hacer un select con todas las Trips de ese manager
 		managerPrincipal = this.managerService.findByPrincipal();
-		trips = this.notificationService.findTripsWithManagerId(managerPrincipal.getId());
+		trips = this.floutService.findTripsWithManagerId(managerPrincipal.getId());
 
-		result = new ModelAndView("notification/edit");
-		result.addObject("notification", notification);
+		result = new ModelAndView("flout/edit");
+		result.addObject("flout", flout);
 		result.addObject("trips", trips);
 		result.addObject("message", messageCode);
-		result.addObject("RequestURI", "notification/manager_/edit.do");
+		result.addObject("RequestURI", "flout/manager_/edit.do");
 
 		return result;
 

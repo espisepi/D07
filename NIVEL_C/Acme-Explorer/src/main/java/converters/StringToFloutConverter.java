@@ -8,21 +8,21 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import repositories.NotificationRepository;
-import domain.Notification;
+import repositories.FloutRepository;
+import domain.Flout;
 
 @Component
 @Transactional
-public class StringToNotificationConverter implements Converter<String, Notification> {
+public class StringToFloutConverter implements Converter<String, Flout> {
 
 	@Autowired
-	private NotificationRepository	notificationRepository;
+	private FloutRepository	floutRepository;
 
 
 	@Override
-	public Notification convert(final String text) {
+	public Flout convert(final String text) {
 
-		Notification result;
+		Flout result;
 		int id;
 
 		try {
@@ -30,7 +30,7 @@ public class StringToNotificationConverter implements Converter<String, Notifica
 				result = null;
 			else {
 				id = Integer.valueOf(text);
-				result = this.notificationRepository.findOne(id);
+				result = this.floutRepository.findOne(id);
 
 			}
 

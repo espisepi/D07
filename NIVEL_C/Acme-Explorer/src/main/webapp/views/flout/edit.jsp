@@ -21,14 +21,14 @@
 
 
 
-<form:form action="${RequestURI }" modelAttribute="notification">
+<form:form action="${RequestURI }" modelAttribute="flout">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 	<form:hidden path="code" />
 	
 	<form:label path="gauge">
-		<spring:message code="notification.gauge" />:
+		<spring:message code="flout.gauge" />:
 	</form:label>
 	<form:select id="gauge" path="gauge" >
 		<form:option value="0" label="----" />		
@@ -40,14 +40,14 @@
 	<br />
 	
 	<form:label path="moment">
-		<spring:message code="notification.moment" />:
+		<spring:message code="flout.moment" />:
 	</form:label>
 	<form:input path="moment" placeholder=" yyyy/MM/dd HH:hh"/>
 	<form:errors cssClass="error" path="moment" />
 	<br />
 	
 	<form:label path="trip">
-		<spring:message code="notification.trip" />:
+		<spring:message code="flout.trip" />:
 	</form:label>
 	<form:select id="trips" path="trip" >
 		<form:option value="0" label="----" />		
@@ -58,15 +58,15 @@
 	<br />
 	
 	<input type="submit" name="save"
-		value="<spring:message code="notification.save" />" />&nbsp; 
+		value="<spring:message code="flout.save" />" />&nbsp; 
 		
-	<jstl:if test="${notification.id != 0}">
+	<jstl:if test="${flout.id != 0}">
 		<input type="submit" name="delete"
-			value="<spring:message code="notification.delete" />"
-			onclick="javascript: return confirm('<spring:message code="notification.confirm.delete" />')" />&nbsp;
+			value="<spring:message code="flout.delete" />"
+			onclick="javascript: return confirm('<spring:message code="flout.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 	
 	<input type="button" name="cancel"
-		value="<spring:message code="notification.cancel" />"
-		onclick="javascript:  window.location.replace('notification/manager_/list.do');" />
+		value="<spring:message code="flout.cancel" />"
+		onclick="javascript:  window.location.replace('flout/manager_/list.do');" />
 </form:form>

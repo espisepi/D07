@@ -174,12 +174,12 @@
 
 
 <!-- AÑADIR BOTON DE NOTIFICATION -->
-<spring:message code="notification.list" var="notifications" />
-<display:column title="${notifications}">
-		<spring:url value="notification/list.do" var="notificationURL">
+<spring:message code="flout.list" var="flouts" />
+<display:column title="${flouts}">
+		<spring:url value="flout/list.do" var="floutURL">
 			<spring:param name="tripId" value="${row.id }" />
 		</spring:url>
-			<a href="${notificationURL}"><spring:message code="notification.list" /></a>
+			<a href="${floutURL}"><spring:message code="flout.list" /></a>
 </display:column>
 
 

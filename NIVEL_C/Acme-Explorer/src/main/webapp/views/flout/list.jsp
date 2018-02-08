@@ -22,7 +22,7 @@
 <jsp:useBean id="util" class="utilities.Methodutilities" scope="page" />
 
 <display:table pagesize="5" class="displaytag" keepStatus="true"
-	name="notifications" requestURI="${requestURI}" id="row">
+	name="flouts" requestURI="${requestURI}" id="row">
 	
 	<%!String estilo="red";%>
 	<jstl:choose>
@@ -41,34 +41,34 @@
 
 	</jstl:choose>
 	
-	<spring:message code="notification.code" var="codeHeader" />
+	<spring:message code="flout.code" var="codeHeader" />
 	<display:column property="code" title="${codeHeader}" sortable="true" />
 	
-	<spring:message code="notification.format.date" var="pattern"></spring:message>
-	<spring:message code="notification.moment" var="momentHeader" />
+	<spring:message code="flout.format.date" var="pattern"></spring:message>
+	<spring:message code="flout.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}" sortable="true" format="${pattern}" />
 
-	<spring:message code="notification.gauge" var="gaugeHeader" />
+	<spring:message code="flout.gauge" var="gaugeHeader" />
 	<display:column property="gauge" title="${gaugeHeader}" sortable="true" class="<%= estilo %>" />
 	
 	<!-- MOSTRAR EL LINK DE LA TRIP ASOCIADA -->
-	<spring:message code="notification.trip" var="trip" />
+	<spring:message code="flout.trip" var="trip" />
 	<display:column title="${trip}">
 		<spring:url value="trip/display.do" var="tripURL">
 			<spring:param name="tripId" value="${row.trip.id }" />
 		</spring:url>
-			<a href="${tripURL}"><spring:message code="notification.trip.display" /></a>
+			<a href="${tripURL}"><spring:message code="flout.trip.display" /></a>
 	</display:column>
 	
 	<!-- Mostrar el link para editar -->
 	<jstl:if test="${showEditCreateLink}">
 	<security:authorize access="hasRole('MANAGER')">	
-	<spring:message code="notification.edit" var="Edit" />
+	<spring:message code="flout.edit" var="Edit" />
 		<display:column title="${Edit}" sortable="true">
-				<spring:url value="notification/manager_/edit.do" var="editURL">
-					<spring:param name="notificationId" value="${row.id}" />
+				<spring:url value="flout/manager_/edit.do" var="editURL">
+					<spring:param name="floutId" value="${row.id}" />
 				</spring:url>
-				<a href="${editURL}"><spring:message code="notification.edit" /></a>
+				<a href="${editURL}"><spring:message code="flout.edit" /></a>
 		</display:column>		
 	</security:authorize>
 	</jstl:if>
@@ -80,8 +80,8 @@
 	<security:authorize access="hasRole('MANAGER')">
 
 		<div>
-			<a href="notification/manager_/create.do"> 
-				<spring:message	code="notification.create" />
+			<a href="flout/manager_/create.do"> 
+				<spring:message	code="flout.create" />
 			</a>
 		</div>
 	</security:authorize>

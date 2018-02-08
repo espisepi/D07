@@ -302,12 +302,12 @@
 					<li><a href="category/list.do"><spring:message code="master.page.administrator.categories" /></a></li>
 				</ul></li>
 				
-				<!-- COLUMNA DE NOTIFICATIONS EN MANAGER -->
+				<!-- COLUMNA DE FLOUTS EN MANAGER -->
 				<li><a class="fNiv"><spring:message
-						code="master.page.notification" /></a>
+						code="master.page.flout" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="notification/manager_/list.do"><spring:message code="master.page.notification" /></a></li>
+					<li><a href="flout/manager_/list.do"><spring:message code="master.page.flout" /></a></li>
 				</ul></li>
 				
 				

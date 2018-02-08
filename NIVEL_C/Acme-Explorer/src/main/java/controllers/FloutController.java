@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.NotificationService;
+import services.FloutService;
 import services.RangerService;
 import services.TripService;
-import domain.Notification;
+import domain.Flout;
 
 @Controller
-@RequestMapping("/notification")
-public class NotificationController extends AbstractController {
+@RequestMapping("/flout")
+public class FloutController extends AbstractController {
 
 	// Services ---------------------------------------------------------------
 	@Autowired
 	private TripService			tripService;
 
 	@Autowired
-	private NotificationService	notificationService;
+	private FloutService	floutService;
 
 	@Autowired
 	private RangerService		rangerService;
 
 
 	// Constructors -----------------------------------------------------------
-	public NotificationController() {
+	public FloutController() {
 
 	}
 
@@ -41,14 +41,14 @@ public class NotificationController extends AbstractController {
 	public ModelAndView list(@RequestParam final int tripId) {
 
 		ModelAndView result;
-		final Collection<Notification> notifications;
+		final Collection<Flout> flouts;
 
-		notifications = this.notificationService.findNotificationsWithTripId(tripId);
+		flouts = this.floutService.findFloutsWithTripId(tripId);
 
-		result = new ModelAndView("notification/list");
-		result.addObject("notifications", notifications);
+		result = new ModelAndView("flout/list");
+		result.addObject("flouts", flouts);
 		result.addObject("tripId", tripId);
-		result.addObject("requestURI", "notification/list.do");
+		result.addObject("requestURI", "flout/list.do");
 
 		return result;
 	}

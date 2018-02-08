@@ -16,14 +16,14 @@
       
 <tiles-definitions>
 
-	<definition name="notification/list" extends="master.page">	
-		<put-attribute name="title" value="List Notifications" />
-		<put-attribute name="body" value="/views/notification/list.jsp" />
+	<definition name="flout/list" extends="master.page">	
+		<put-attribute name="title" value="List Flouts" />
+		<put-attribute name="body" value="/views/flout/list.jsp" />
 	</definition>
 	
-	<definition name="notification/edit" extends="master.page">	
-		<put-attribute name="title" value="Edit Notification" />
-		<put-attribute name="body" value="/views/notification/edit.jsp" />
+	<definition name="flout/edit" extends="master.page">	
+		<put-attribute name="title" value="Edit Flout" />
+		<put-attribute name="body" value="/views/flout/edit.jsp" />
 	</definition>
 	
 </tiles-definitions>

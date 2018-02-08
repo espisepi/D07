@@ -400,8 +400,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxAdministrator1" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxAdministrator1" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -446,8 +446,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxAdministrator2" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxAdministrator2" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -491,8 +491,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxAdministrator3" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxAdministrator3" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -536,8 +536,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxAdministrator4" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxAdministrator4" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -581,8 +581,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxAdministrator5" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxAdministrator5" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -629,8 +629,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxRanger1" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxRanger1" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -674,8 +674,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxRanger2" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxRanger2" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -719,8 +719,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxRanger3" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxRanger3" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -764,8 +764,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxRanger4" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxRanger4" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -809,8 +809,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxRanger5" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxRanger5" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -856,8 +856,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxManager1" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxManager1" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -901,8 +901,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxManager2" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxManager2" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -946,8 +946,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxManager3" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxManager3" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -991,8 +991,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxManager4" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxManager4" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1036,8 +1036,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxManager5" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxManager5" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1083,8 +1083,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxExplorer1" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxExplorer1" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1128,8 +1128,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxExplorer2" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxExplorer2" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1173,8 +1173,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxExplorer3" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxExplorer3" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1218,8 +1218,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxExplorer4" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxExplorer4" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1263,8 +1263,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxExplorer5" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxExplorer5" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1308,8 +1308,8 @@
 		</property>
 	</bean>
 
-	<bean id="NotificationBoxExplorer6" class="domain.MessageFolder">
-		<property name="name" value="Notification box" />
+	<bean id="FloutBoxExplorer6" class="domain.MessageFolder">
+		<property name="name" value="Flout box" />
 		<property name="modifiable" value="false" />
 		<property name="messages">
 			<list>
@@ -1551,7 +1551,7 @@
 			<list>
 				<ref bean="InBoxAdministrator1" />
 				<ref bean="OutBoxAdministrator1" />
-				<ref bean="NotificationBoxAdministrator1" />
+				<ref bean="FloutBoxAdministrator1" />
 				<ref bean="TrashBoxAdministrator1" />
 				<ref bean="SpamBoxAdministrator1" />
 <!-- 				<ref bean="messageFolder1" />
@@ -1581,7 +1581,7 @@
 			<list>
 				<ref bean="InBoxAdministrator2" />
 				<ref bean="OutBoxAdministrator2" />
-				<ref bean="NotificationBoxAdministrator2" />
+				<ref bean="FloutBoxAdministrator2" />
 				<ref bean="TrashBoxAdministrator2" />
 				<ref bean="SpamBoxAdministrator2" />
 			</list>
@@ -1606,7 +1606,7 @@
 			<list>
 				<ref bean="InBoxAdministrator3" />
 				<ref bean="OutBoxAdministrator3" />
-				<ref bean="NotificationBoxAdministrator3" />
+				<ref bean="FloutBoxAdministrator3" />
 				<ref bean="TrashBoxAdministrator3" />
 				<ref bean="SpamBoxAdministrator3" />
 			</list>
@@ -1631,7 +1631,7 @@
 			<list>
 				<ref bean="InBoxAdministrator4" />
 				<ref bean="OutBoxAdministrator4" />
-				<ref bean="NotificationBoxAdministrator4" />
+				<ref bean="FloutBoxAdministrator4" />
 				<ref bean="TrashBoxAdministrator4" />
 				<ref bean="SpamBoxAdministrator4" />
 			</list>
@@ -1657,7 +1657,7 @@
 			<list>
 				<ref bean="InBoxAdministrator5" />
 				<ref bean="OutBoxAdministrator5" />
-				<ref bean="NotificationBoxAdministrator5" />
+				<ref bean="FloutBoxAdministrator5" />
 				<ref bean="TrashBoxAdministrator5" />
 				<ref bean="SpamBoxAdministrator5" />
 			</list>
@@ -1778,9 +1778,9 @@
 				<ref bean="applicationFor2"></ref>
 			</list>
 		</property>
-		<property name="notifications">
+		<property name="flouts">
 			<list>
-				<ref bean="notification1"></ref>
+				<ref bean="flout1"></ref>
 			</list>
 		</property>
 	</bean>
@@ -1814,7 +1814,7 @@
 				<ref bean="applicationFor3"></ref>
 			</list>
 		</property>
-		<property name="notifications">
+		<property name="flouts">
 			<list>
 			</list>
 		</property>
@@ -1851,7 +1851,7 @@
 				<ref bean="applicationFor6"></ref>
 			</list>
 		</property>
-		<property name="notifications">
+		<property name="flouts">
 			<list>
 			</list>
 		</property>
@@ -1883,7 +1883,7 @@
 			<list>
 			</list>
 		</property>
-		<property name="notifications">
+		<property name="flouts">
 			<list>
 			</list>
 		</property>
@@ -1917,7 +1917,7 @@
 			<list>
 			</list>
 		</property>
-		<property name="notifications">
+		<property name="flouts">
 			<list>
 			</list>
 		</property>
@@ -2002,7 +2002,7 @@
 			<list>
 				<ref bean="InBoxRanger1" />
 				<ref bean="OutBoxRanger1" />
-				<ref bean="NotificationBoxRanger1" />
+				<ref bean="FloutBoxRanger1" />
 				<ref bean="TrashBoxRanger1" />
 				<ref bean="SpamBoxRanger1" />
 			</list>
@@ -2030,7 +2030,7 @@
 			<list>
 				<ref bean="InBoxRanger2" />
 				<ref bean="OutBoxRanger2" />
-				<ref bean="NotificationBoxRanger2" />
+				<ref bean="FloutBoxRanger2" />
 				<ref bean="TrashBoxRanger2" />
 				<ref bean="SpamBoxRanger2" />
 			</list>
@@ -2057,7 +2057,7 @@
 			<list>
 				<ref bean="InBoxRanger3" />
 				<ref bean="OutBoxRanger3" />
-				<ref bean="NotificationBoxRanger3" />
+				<ref bean="FloutBoxRanger3" />
 				<ref bean="TrashBoxRanger3" />
 				<ref bean="SpamBoxRanger3" />
 			</list>
@@ -2084,7 +2084,7 @@
 			<list>
 				<ref bean="InBoxRanger4" />
 				<ref bean="OutBoxRanger4" />
-				<ref bean="NotificationBoxRanger4" />
+				<ref bean="FloutBoxRanger4" />
 				<ref bean="TrashBoxRanger4" />
 				<ref bean="SpamBoxRanger4" />
 			</list>
@@ -2111,7 +2111,7 @@
 			<list>
 				<ref bean="InBoxRanger5" />
 				<ref bean="OutBoxRanger5" />
-				<ref bean="NotificationBoxRanger5" />
+				<ref bean="FloutBoxRanger5" />
 				<ref bean="TrashBoxRanger5" />
 				<ref bean="SpamBoxRanger5" />
 			</list>
@@ -2463,7 +2463,7 @@
 			<list>
 				<ref bean="InBoxManager1" />
 				<ref bean="OutBoxManager1" />
-				<ref bean="NotificationBoxManager1" />
+				<ref bean="FloutBoxManager1" />
 				<ref bean="TrashBoxManager1" />
 				<ref bean="SpamBoxManager1" />
 			</list>
@@ -2497,7 +2497,7 @@
 			<list>
 				<ref bean="InBoxManager2" />
 				<ref bean="OutBoxManager2" />
-				<ref bean="NotificationBoxManager2" />
+				<ref bean="FloutBoxManager2" />
 				<ref bean="TrashBoxManager2" />
 				<ref bean="SpamBoxManager2" />
 			</list>
@@ -2529,7 +2529,7 @@
 			<list>
 				<ref bean="InBoxManager3" />
 				<ref bean="OutBoxManager3" />
-				<ref bean="NotificationBoxManager3" />
+				<ref bean="FloutBoxManager3" />
 				<ref bean="TrashBoxManager3" />
 				<ref bean="SpamBoxManager3" />
 			</list>
@@ -2560,7 +2560,7 @@
 			<list>
 				<ref bean="InBoxManager4" />
 				<ref bean="OutBoxManager4" />
-				<ref bean="NotificationBoxManager4" />
+				<ref bean="FloutBoxManager4" />
 				<ref bean="TrashBoxManager4" />
 				<ref bean="SpamBoxManager4" />
 			</list>
@@ -2592,7 +2592,7 @@
 			<list>
 				<ref bean="InBoxManager5" />
 				<ref bean="OutBoxManager5" />
-				<ref bean="NotificationBoxManager5" />
+				<ref bean="FloutBoxManager5" />
 				<ref bean="TrashBoxManager5" />
 				<ref bean="SpamBoxManager5" />
 			</list>
@@ -2627,7 +2627,7 @@
 			<list>
 				<ref bean="InBoxExplorer1" />
 				<ref bean="OutBoxExplorer1" />
-				<ref bean="NotificationBoxExplorer1" />
+				<ref bean="FloutBoxExplorer1" />
 				<ref bean="TrashBoxExplorer1" />
 				<ref bean="SpamBoxExplorer1" />
 			</list>
@@ -2659,7 +2659,7 @@
 			<list>
 				<ref bean="InBoxExplorer2" />
 				<ref bean="OutBoxExplorer2" />
-				<ref bean="NotificationBoxExplorer2" />
+				<ref bean="FloutBoxExplorer2" />
 				<ref bean="TrashBoxExplorer2" />
 				<ref bean="SpamBoxExplorer2" />
 			</list>
@@ -2692,7 +2692,7 @@
 			<list>
 				<ref bean="InBoxExplorer3" />
 				<ref bean="OutBoxExplorer3" />
-				<ref bean="NotificationBoxExplorer3" />
+				<ref bean="FloutBoxExplorer3" />
 				<ref bean="TrashBoxExplorer3" />
 				<ref bean="SpamBoxExplorer3" />
 			</list>
@@ -2729,7 +2729,7 @@
 			<list>
 				<ref bean="InBoxExplorer4" />
 				<ref bean="OutBoxExplorer4" />
-				<ref bean="NotificationBoxExplorer4" />
+				<ref bean="FloutBoxExplorer4" />
 				<ref bean="TrashBoxExplorer4" />
 				<ref bean="SpamBoxExplorer4" />
 			</list>
@@ -2760,7 +2760,7 @@
 			<list>
 				<ref bean="InBoxExplorer5" />
 				<ref bean="OutBoxExplorer5" />
-				<ref bean="NotificationBoxExplorer5" />
+				<ref bean="FloutBoxExplorer5" />
 				<ref bean="TrashBoxExplorer5" />
 				<ref bean="SpamBoxExplorer5" />
 			</list>
@@ -2794,7 +2794,7 @@
 			<list>
 				<ref bean="InBoxExplorer6" />
 				<ref bean="OutBoxExplorer6" />
-				<ref bean="NotificationBoxExplorer6" />
+				<ref bean="FloutBoxExplorer6" />
 				<ref bean="TrashBoxExplorer6" />
 				<ref bean="SpamBoxExplorer6" />
 			</list>
@@ -2959,7 +2959,7 @@
 	
 	<!-- NOTIFICATIONS -->
 	
-	<bean id="notification1" class="domain.Notification">
+	<bean id="flout1" class="domain.Flout">
 		<property name="code" value="170112-WWWW"></property>
 		<property name="gauge" value="1"></property>
 		<property name="moment" value="2017/10/27 03:10" />

@@ -141,17 +141,17 @@ public class Trip extends DomainEntity {
 	private Collection<Value>			values;
 	private Collection<ApplicationFor>	applicationsFor;
 	private Ranger						ranger;
-	private Collection<Notification>	notifications;
+	private Collection<Flout>			flouts;
 
 
 	@NotNull
 	@OneToMany(mappedBy = "trip", cascade = CascadeType.REMOVE)
-	public Collection<Notification> getNotifications() {
-		return this.notifications;
+	public Collection<Flout> getFlouts() {
+		return this.flouts;
 	}
 
-	public void setNotifications(final Collection<Notification> notifications) {
-		this.notifications = notifications;
+	public void setFlouts(final Collection<Flout> flouts) {
+		this.flouts = flouts;
 	}
 
 	@NotNull

@@ -9,39 +9,39 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import repositories.NotificationRepository;
+import repositories.FloutRepository;
+import domain.Flout;
 import domain.Manager;
-import domain.Notification;
 import domain.Trip;
 
 @Service
 @Transactional
-public class NotificationService {
+public class FloutService {
 
 	// Managed repository -----------------------------------------------------
 
 	@Autowired
-	private NotificationRepository	notificationRepository;
+	private FloutRepository	floutRepository;
 
 	// Supporting services ----------------------------------------------------
 	@Autowired
-	private ManagerService			managerService;
+	private ManagerService	managerService;
 
 
 	// Constructors -----------------------------------------------------------
 
-	public NotificationService() {
+	public FloutService() {
 		super();
 	}
 
 	// Simple CRUD methods ----------------------------------------------------
 
-	public Notification create() {
-		Notification result;
+	public Flout create() {
+		Flout result;
 		Manager managerPrincipal;
 		String code;
 
-		result = new Notification();
+		result = new Flout();
 		code = this.generatedCode();
 
 		managerPrincipal = this.managerService.findByPrincipal();
@@ -89,81 +89,81 @@ public class NotificationService {
 		return code;
 	}
 
-	public Collection<Notification> findAll() {
-		Collection<Notification> result;
+	public Collection<Flout> findAll() {
+		Collection<Flout> result;
 
-		Assert.notNull(this.notificationRepository);
-		result = this.notificationRepository.findAll();
+		Assert.notNull(this.floutRepository);
+		result = this.floutRepository.findAll();
 		Assert.notNull(result);
 
 		return result;
 	}
 
-	public Notification findOne(final int notificationId) {
-		Notification result;
+	public Flout findOne(final int floutId) {
+		Flout result;
 
-		result = this.notificationRepository.findOne(notificationId);
+		result = this.floutRepository.findOne(floutId);
 		Assert.notNull(result);
 
 		return result;
 	}
 
-	public Notification save(final Notification notification) {
-		Assert.notNull(notification);
+	public Flout save(final Flout flout) {
+		Assert.notNull(flout);
 
-		Notification result;
+		Flout result;
 
-		result = this.notificationRepository.save(notification);
+		result = this.floutRepository.save(flout);
 
 		return result;
 	}
-	public void delete(final Notification notification) {
-		Assert.notNull(notification != null);
-		Assert.isTrue(notification.getId() != 0);
-		Assert.isTrue(this.notificationRepository.exists(notification.getId()));
+	public void delete(final Flout flout) {
+		Assert.notNull(flout != null);
+		Assert.isTrue(flout.getId() != 0);
+		Assert.isTrue(this.floutRepository.exists(flout.getId()));
 		Manager managerPrincipal;
 
-		//Comprobamos si la notification pertenece al manager logeado
+		//Comprobamos si la flout pertenece al manager logeado
 		managerPrincipal = this.managerService.findByPrincipal();
-		Assert.isTrue(this.findByManagerId(managerPrincipal.getId()).contains(notification));
+		Assert.isTrue(this.findByManagerId(managerPrincipal.getId()).contains(flout));
 		//Borramos la notificacion de la lista de notificaciones de Trip (No haria falta en bidireccional
-		//trip.getNotifications().remove(notification);
+		//trip.getFlouts().remove(flout);
 
-		this.notificationRepository.delete(notification);
+		this.floutRepository.delete(flout);
 	}
 
 	// Other business methods------------------------------------------------------
 
-	public Double findRatioTripsWithNotifications() {
+	public Double findRatioTripsWithFlouts() {
 		Double result;
 
-		result = this.notificationRepository.findRatioTripsWithNotifications();
+		result = this.floutRepository.findRatioTripsWithFlouts();
 		Assert.notNull(result);
 
 		return result;
 	}
 
-	public Collection<Manager> findManagersWithMoreNotifications() {
+	public Collection<Manager> findManagersWithMoreFlouts() {
 		Collection<Manager> result;
 
-		result = this.notificationRepository.findManagersWithMoreNotifications();
+		result = this.floutRepository.findManagersWithMoreFlouts();
 
 		return result;
 	}
 
-	public Trip findTripWithThisNotification(final int notificationId) {
+	public Trip findTripWithThisFlout(final int floutId) {
 		Trip result;
 
-		result = this.notificationRepository.findTripWithThisNotification(notificationId);
+		result = this.floutRepository.findTripWithThisFlout(floutId);
 		Assert.notNull(result);
 
 		return result;
 	}
 
-	public Collection<Notification> findNotificationsWithTripId(final int tripId) {
-		Collection<Notification> result;
+	public Collection<Flout> findFloutsWithTripId(final int tripId) {
+		Collection<Flout> result;
 
-		result = this.notificationRepository.findNotificationsWithTripId(tripId);
+		result = this.floutRepository.findFloutsWithTripId(tripId);
 
 		return result;
 	}
@@ -171,15 +171,15 @@ public class NotificationService {
 	public Collection<Trip> findTripsWithManagerId(final int managerId) {
 		Collection<Trip> result;
 
-		result = this.notificationRepository.findTripsWithManagerId(managerId);
+		result = this.floutRepository.findTripsWithManagerId(managerId);
 
 		return result;
 	}
 
-	public Collection<Notification> findByManagerId(final int managerId) {
-		Collection<Notification> result;
+	public Collection<Flout> findByManagerId(final int managerId) {
+		Collection<Flout> result;
 
-		result = this.notificationRepository.findByManagerId(managerId);
+		result = this.floutRepository.findByManagerId(managerId);
 
 		return result;
 	}

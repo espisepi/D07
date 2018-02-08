@@ -18,9 +18,9 @@ import repositories.TripRepository;
 import domain.ApplicationFor;
 import domain.Category;
 import domain.Explorer;
+import domain.Flout;
 import domain.LegalText;
 import domain.Manager;
-import domain.Notification;
 import domain.Ranger;
 import domain.Stage;
 import domain.Trip;
@@ -66,7 +66,7 @@ public class TripService {
 		Collection<ApplicationFor> applicationsFor;
 		Collection<Stage> stages;
 		Collection<Value> values;
-		Collection<Notification> notifications;
+		Collection<Flout> flouts;
 		Trip trip;
 		Ranger ranger;
 
@@ -75,7 +75,7 @@ public class TripService {
 		applicationsFor = new ArrayList<ApplicationFor>();
 		stages = new ArrayList<Stage>();
 		values = new ArrayList<Value>();
-		notifications = new ArrayList<Notification>();
+		flouts = new ArrayList<Flout>();
 
 		trip.setManager(manager);
 		trip.setApplicationsFor(applicationsFor);
@@ -84,7 +84,7 @@ public class TripService {
 		trip.setTicker(this.generatedTicker());
 		trip.setRanger(ranger);
 		trip.setReasonWhy(null);
-		trip.setNotifications(notifications);
+		trip.setFlouts(flouts);
 
 		return trip;
 	}

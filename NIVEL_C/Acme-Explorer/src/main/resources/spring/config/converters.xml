@@ -83,8 +83,8 @@
 		<bean class="converters.StringToValueConverter"/>
 		<bean class="converters.ValueToStringConverter"/>
 		
-		<bean class="converters.StringToNotificationConverter"/>
-		<bean class="converters.NotificationToStringConverter"/>
+		<bean class="converters.StringToFloutConverter"/>
+		<bean class="converters.FloutToStringConverter"/>
 				
 	</util:list>
 	

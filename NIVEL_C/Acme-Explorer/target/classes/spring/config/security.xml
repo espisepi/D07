@@ -83,8 +83,8 @@
 		<security:intercept-url pattern="/contactsEmergency/explorer/**" access="hasRole('EXPLORER')"/>
 		
 		
-		<security:intercept-url pattern="/notification/list.do" access="permitAll"/>
-		<security:intercept-url pattern="/notification/manager_/**" access="hasRole('MANAGER')"/>
+		<security:intercept-url pattern="/flout/list.do" access="permitAll"/>
+		<security:intercept-url pattern="/flout/manager_/**" access="hasRole('MANAGER')"/>
 			
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 

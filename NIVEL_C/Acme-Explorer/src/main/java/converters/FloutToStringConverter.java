@@ -6,21 +6,21 @@ import javax.transaction.Transactional;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import domain.Notification;
+import domain.Flout;
 
 @Component
 @Transactional
-public class NotificationToStringConverter implements Converter<Notification, String> {
+public class FloutToStringConverter implements Converter<Flout, String> {
 
 	@Override
-	public String convert(final Notification notification) {
+	public String convert(final Flout flout) {
 
 		String result;
 
-		if (notification == null)
+		if (flout == null)
 			result = null;
 		else
-			result = String.valueOf(notification.getId());
+			result = String.valueOf(flout.getId());
 
 		return result;
 	}
