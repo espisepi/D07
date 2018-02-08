@@ -17,7 +17,7 @@ public interface FloutRepository extends JpaRepository<Flout, Integer> {
 	@Query("select (select count(t) from Trip t where t.flouts.size!=0) * 1.0 / count(t) from Trip t")
 	Double findRatioTripsWithFlouts();
 
-	@Query("select t from Trip t where t.flouts.size=(select max(t.flouts.size) from Trip t)")
+	@Query("select t.manager from Trip t where t.flouts.size=(select max(t.flouts.size) from Trip t)")
 	Collection<Manager> findManagersWithMoreFlouts();
 
 	@Query("select t from Trip t join t.flouts n where n.id=?1")

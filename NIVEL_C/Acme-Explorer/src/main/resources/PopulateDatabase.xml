@@ -1816,6 +1816,7 @@
 		</property>
 		<property name="flouts">
 			<list>
+			<ref bean="flout2"></ref>
 			</list>
 		</property>
 
@@ -1853,6 +1854,8 @@
 		</property>
 		<property name="flouts">
 			<list>
+			<ref bean="flout3"></ref>
+			<ref bean="flout4"></ref>
 			</list>
 		</property>
 
@@ -2960,13 +2963,39 @@
 	<!-- NOTIFICATIONS -->
 	
 	<bean id="flout1" class="domain.Flout">
-		<property name="number" value="ab180202bc"></property>
-		<property name="title" value="title 1 flout"></property>
-		<property name="description" value="description 1 flout"></property>
+		<property name="number" value="ab171027bc"></property>
+		<property name="title" value="title flout 1"></property>
+		<property name="description" value="description flout 1"></property>
 		<property name="gauge" value="1"></property>
 		<property name="moment" value="2017/10/27 03:10" />
 		<property name="trip"><ref bean="trip1" /></property>
-		
-		
 	</bean>
+	
+	<bean id="flout2" class="domain.Flout">
+		<property name="number" value="ac181012bc"></property>
+		<property name="title" value="title flout 2"></property>
+		<property name="description" value="description flout 2"></property>
+		<property name="gauge" value="2"></property>
+		<property name="moment" value="2018/10/12 03:10" />
+		<property name="trip"><ref bean="trip2" /></property>
+	</bean>
+	
+	<bean id="flout3" class="domain.Flout">
+		<property name="number" value="bb180113aa"></property>
+		<property name="title" value="title flout 3"></property>
+		<property name="description" value="description flout 3"></property>
+		<property name="gauge" value="3"></property>
+		<property name="moment" value="2018/01/13 03:10" />
+		<property name="trip"><ref bean="trip3" /></property>
+	</bean>
+	
+	<bean id="flout4" class="domain.Flout">
+		<property name="number" value="bb180814rr"></property>
+		<property name="title" value="title flout 4"></property>
+		<property name="description" value="description flout 4"></property>
+		<property name="gauge" value="1"></property>
+		<property name="moment" value="2018/08/14 03:10" />
+		<property name="trip"><ref bean="trip3" /></property>
+	</bean>
+	
 </beans>
