@@ -24,23 +24,6 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="flouts" requestURI="${requestURI}" id="row">
 	
-	<%!String estilo="red";%>
-	<jstl:choose>
-	
-		<jstl:when test="${row.gauge=='1'}">
-			<%=estilo = "red"%>
-		</jstl:when>
-
-		<jstl:when test="${row.gauge=='2'}">
-			<%=estilo = "cyan"%>
-		</jstl:when>
-		
-		<jstl:when test="${row.gauge=='3'}">
-			<%=estilo = "yellow"%>
-		</jstl:when>
-
-	</jstl:choose>
-	
 	<spring:message code="flout.number" var="numberHeader" />
 	<display:column property="number" title="${numberHeader}" sortable="true" />
 	
@@ -54,8 +37,23 @@
 	<spring:message code="flout.moment" var="momentHeader" />
 	<display:column property="moment" title="${momentHeader}" sortable="true" format="${pattern}" />
 
+	<jstl:choose>
+	
+		<jstl:when test="${row.gauge=='1'}">
 	<spring:message code="flout.gauge" var="gaugeHeader" />
-	<display:column property="gauge" title="${gaugeHeader}" sortable="true" class="<%= estilo %>" />
+	<display:column property="gauge" title="${gaugeHeader}" sortable="true" style="background-color:cyan;" />
+		</jstl:when>
+		
+		<jstl:when test="${row.gauge=='2'}">
+	<spring:message code="flout.gauge" var="gaugeHeader" />
+	<display:column property="gauge" title="${gaugeHeader}" sortable="true" style="background-color:pink;" />
+		</jstl:when>
+		
+		<jstl:when test="${row.gauge=='3'}">
+	<spring:message code="flout.gauge" var="gaugeHeader" />
+	<display:column property="gauge" title="${gaugeHeader}" sortable="true" style="background-color:gold;" />
+		</jstl:when>
+	</jstl:choose>
 	
 	<!-- MOSTRAR EL LINK DE LA TRIP ASOCIADA -->
 	<spring:message code="flout.trip" var="trip" />
