@@ -70,7 +70,7 @@
 	<security:authorize access="hasRole('MANAGER')">	
 	<spring:message code="flout.edit" var="Edit" />
 		<display:column title="${Edit}" sortable="true">
-		<jstl:if test="${row.moment >= actualDate}">
+		<jstl:if test="${util.publicationDate(row.moment)==true}">
 				<spring:url value="flout/manager_/edit.do" var="editURL">
 					<spring:param name="floutId" value="${row.id}" />
 				</spring:url>
