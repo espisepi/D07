@@ -174,13 +174,13 @@
 
 
 <!-- AÑADIR BOTON DE NOTIFICATION -->
-<spring:message code="flout.list" var="flouts" />
+<%-- <spring:message code="flout.list" var="flouts" />
 <display:column title="${flouts}">
 		<spring:url value="flout/list.do" var="floutURL">
 			<spring:param name="tripId" value="${row.id }" />
 		</spring:url>
 			<a href="${floutURL}"><spring:message code="flout.list" /></a>
-</display:column>
+</display:column> --%>
 
 
 </display:table>

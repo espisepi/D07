@@ -123,6 +123,7 @@ public class TripController extends AbstractController {
 		result.addObject("stages", stages);
 		result.addObject("aplicationFor", apply);
 		result.addObject("ranger", ranger);
+		result.addObject("flouts", trip.getFlouts());
 
 		return result;
 	}

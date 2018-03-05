@@ -30,11 +30,45 @@
 	<p><spring:message code="trip.manager.name" />:  <jstl:out value="${trip.manager.name}"></jstl:out></p>
 		
 	<!-- AÑADIR BOTON DE NOTIFICATION -->
-	<spring:message code="flout.list" var="flouts" />
+	<%-- <spring:message code="flout.list" var="flouts" />
 		<spring:url value="flout/list.do" var="floutURL">
 			<spring:param name="tripId" value="${trip.id }" />
 		</spring:url>
-			<a href="${floutURL}"><spring:message code="flout.list" /></a>
+			<a href="${floutURL}"><spring:message code="flout.list" /></a> --%>
+			
+	<h2><spring:message code="trip.flouts.name.table" /></h2>
+	<display:table name="flouts" id="row" class="displaytag">
+	<spring:message code="flout.number" var="numberHeader" />
+	<display:column property="number" title="${numberHeader}" sortable="true" />
+	
+	<spring:message code="flout.title" var="titleHeader" />
+	<display:column property="title" title="${titleHeader}" sortable="true" />
+	
+	<spring:message code="flout.description" var="descriptionHeader" />
+	<display:column property="description" title="${descriptionHeader}" sortable="true" />
+	
+	<spring:message code="flout.format.date" var="pattern"></spring:message>
+	<spring:message code="flout.moment" var="momentHeader" />
+	<display:column property="moment" title="${momentHeader}" sortable="true" format="${pattern}" />
+
+	<jstl:choose>
+	
+		<jstl:when test="${row.gauge=='1'}">
+	<spring:message code="flout.gauge" var="gaugeHeader" />
+	<display:column property="gauge" title="${gaugeHeader}" sortable="true" style="background-color:cyan;" />
+		</jstl:when>
+		
+		<jstl:when test="${row.gauge=='2'}">
+	<spring:message code="flout.gauge" var="gaugeHeader" />
+	<display:column property="gauge" title="${gaugeHeader}" sortable="true" style="background-color:pink;" />
+		</jstl:when>
+		
+		<jstl:when test="${row.gauge=='3'}">
+	<spring:message code="flout.gauge" var="gaugeHeader" />
+	<display:column property="gauge" title="${gaugeHeader}" sortable="true" style="background-color:gold;" />
+		</jstl:when>
+	</jstl:choose>
+	</display:table>
 
 	<h2><spring:message code="trip.ranger" /></h2>	
 	<display:table name="ranger" id="row" class="displaytag">
