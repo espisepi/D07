@@ -127,6 +127,9 @@ public class FloutService {
 
 		Assert.isTrue((flout.getMoment() == null) || flout.getMoment().after(new Date()), "moment in past");
 
+		if (flout.getMoment() == null)
+			flout.setMoment(new Date());
+
 		result = this.floutRepository.save(flout);
 
 		return result;
