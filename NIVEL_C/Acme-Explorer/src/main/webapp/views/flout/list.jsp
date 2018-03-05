@@ -66,13 +66,16 @@
 	
 	<!-- Mostrar el link para editar -->
 	<jstl:if test="${showEditCreateLink}">
+	
 	<security:authorize access="hasRole('MANAGER')">	
 	<spring:message code="flout.edit" var="Edit" />
 		<display:column title="${Edit}" sortable="true">
+		<jstl:if test="${row.moment >= actualDate}">
 				<spring:url value="flout/manager_/edit.do" var="editURL">
 					<spring:param name="floutId" value="${row.id}" />
 				</spring:url>
 				<a href="${editURL}"><spring:message code="flout.edit" /></a>
+				</jstl:if>
 		</display:column>		
 	</security:authorize>
 	</jstl:if>

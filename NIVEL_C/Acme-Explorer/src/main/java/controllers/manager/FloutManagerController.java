@@ -2,6 +2,7 @@
 package controllers.manager;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -55,6 +56,7 @@ public class FloutManagerController extends AbstractController {
 		result = new ModelAndView("flout/list");
 		result.addObject("flouts", flouts);
 		result.addObject("showEditCreateLink", true);
+		result.addObject("actualDate", new Date());
 		result.addObject("requestURI", "flout/manager_/list.do");
 
 		return result;
