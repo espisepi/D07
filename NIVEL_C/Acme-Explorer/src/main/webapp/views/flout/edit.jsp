@@ -37,14 +37,14 @@
 	<form:label path="title">
 		<spring:message code="flout.title" />:
 	</form:label>
-	<form:input path="title" />
+	<form:input path="title" maxlength="100"/>
 	<form:errors cssClass="error" path="title" />
 	<br />
 	
 	<form:label path="description">
 		<spring:message code="flout.description" />:
 	</form:label>
-	<form:input path="description" />
+	<form:input path="description" maxlength="250"/>
 	<form:errors cssClass="error" path="description" />
 	<br />
 	
