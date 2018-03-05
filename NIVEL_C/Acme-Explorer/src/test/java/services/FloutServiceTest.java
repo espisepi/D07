@@ -51,6 +51,8 @@ public class FloutServiceTest extends AbstractTest {
 
 		managerPrincipal = this.managerService.findByPrincipal();
 		result = this.floutService.create();
+		result.setTitle("title test");
+		result.setDescription("description test");
 		result.setGauge(3);
 		result.setTrip(managerPrincipal.getTrips().iterator().next());
 		result = this.floutService.save(result);
