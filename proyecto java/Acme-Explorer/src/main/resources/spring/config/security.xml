@@ -45,82 +45,47 @@
 		<security:intercept-url pattern="/applicationFor/explorer/**" access="hasRole('EXPLORER')"/>
 		<security:intercept-url pattern="/applicationFor/manager/**" access="hasRole('MANAGER')"/>
 		<security:intercept-url pattern="/applicationFor/administrator/**" access="hasRole('ADMINISTRATOR')"/>
-		<security:intercept-url pattern="/auditor/**" access="hasRole('AUDITOR')"/>
-		<security:intercept-url pattern="/auditRecord/auditor/**" access="hasRole('AUDITOR')"/>
-		<security:intercept-url pattern="/auditRecord/displayaudit.do" access="permitAll"/>
-		
 		<security:intercept-url pattern="/category/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/category/list.do" access="permitAll"/>
 		<security:intercept-url pattern="/explorer/**" access="hasRole('EXPLORER')"/>
 		<security:intercept-url pattern="/manager_/**" access="hasRole('MANAGER')"/>
-
-		<security:intercept-url pattern="/note/auditor/**" access="hasRole('AUDITOR')"/>
 		<security:intercept-url pattern="/rangerProfile/ranger/**" access="hasRole('RANGER')"/>
 		<security:intercept-url pattern="/rangerProfile/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/rangerProfile/create.do" access="permitAll"/>
 		<security:intercept-url pattern="/rangerProfile/edit.do" access="permitAll"/>
 		<security:intercept-url pattern="/explorerProfile/create.do" access="permitAll"/>
 		<security:intercept-url pattern="/explorerProfile/edit.do" access="permitAll"/>
-		<security:intercept-url pattern="/sponsor/**" access="hasRole('SPONSOR')"/>
-		<security:intercept-url pattern="/sponsorship/sponsor/**" access="hasRole('SPONSOR')"/>
 		<security:intercept-url pattern="/trip/display.do" access="permitAll"/>
 		<security:intercept-url pattern="/trip/search.do" access="permitAll"/>
-		<security:intercept-url pattern="/survivalClass/explorer/**" access="hasRole('EXPLORER')"/>
-		<security:intercept-url pattern="/story/explorer/**" access="hasRole('EXPLORER')"/>
-		<security:intercept-url pattern="/survivalClass/manager/**" access="hasRole('MANAGER')"/>
 		<security:intercept-url pattern="/trip/manager_/**" access="hasRole('MANAGER')"/>
 		<security:intercept-url pattern="/trip/explorer/**" access="hasRole('EXPLORER')"/>
-		<security:intercept-url pattern="/trip/sponsor/list.do" access="hasRole('SPONSOR')"/>
-		<security:intercept-url pattern="/trip/auditor/list.do" access="hasRole('AUDITOR')"/>
 		<security:intercept-url pattern="/trip/administrator/**" access="hasRole('ADMINISTRATOR')" /> 
 		<security:intercept-url pattern="/trip/list.do" access="permitAll"/>
 		<security:intercept-url pattern="/stage/manager/**" access="hasRole('MANAGER')" /> 
 		<security:intercept-url pattern="/legalText/administrator/**" access="hasRole('ADMINISTRATOR')"/>
-		<security:intercept-url pattern="/note/manager/**" access="hasRole('MANAGER')" /> 
 		<security:intercept-url pattern="/tag/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/tag/manager_/**" access="hasRole('MANAGER')"/>
 		<security:intercept-url pattern="/value/manager_/**" access="hasRole('MANAGER')"/>
 		<security:intercept-url pattern="/trip/category/**" access="permitAll"/>
 		<security:intercept-url pattern="/suspicious/administrator/**" access="hasRole('ADMINISTRATOR')" /> 
-		
-
-		
-		<security:intercept-url pattern="/curricula/ranger/**" access="hasRole('RANGER')"/>
-		<security:intercept-url pattern="/curricula/display.do" access="permitAll"/>
-		<security:intercept-url pattern="/miscellaneousRecord/ranger/**" access="hasRole('RANGER')"/>
-		<security:intercept-url pattern="/endorserRecord/ranger/**" access="hasRole('RANGER')"/>
-		<security:intercept-url pattern="/professionalRecord/ranger/**" access="hasRole('RANGER')"/>
-		<security:intercept-url pattern="/educationRecord/ranger/**" access="hasRole('RANGER')"/>
-		<security:intercept-url pattern="/personalRecord/ranger/**" access="hasRole('RANGER')"/>
-		<security:intercept-url pattern="/messageFolder/sponsor/**" access="hasRole('SPONSOR')"/>
 		<security:intercept-url pattern="/messageFolder/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/messageFolder/ranger/**" access="hasRole('RANGER')"/>
 		<security:intercept-url pattern="/messageFolder/explorer/**" access="hasRole('EXPLORER')"/>
-		<security:intercept-url pattern="/messageFolder/auditor/**" access="hasRole('AUDITOR')"/>
 		<security:intercept-url pattern="/messageFolder/manager/**" access="hasRole('MANAGER')"/>
-		<security:intercept-url pattern="/message/sponsor/**" access="hasRole('SPONSOR')"/>
 		<security:intercept-url pattern="/message/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/message/ranger/**" access="hasRole('RANGER')"/>
 		<security:intercept-url pattern="/message/explorer/**" access="hasRole('EXPLORER')"/>
-		<security:intercept-url pattern="/message/auditor/**" access="hasRole('AUDITOR')"/>
 		<security:intercept-url pattern="/message/manager/**" access="hasRole('MANAGER')"/>
 		<security:intercept-url pattern="/configurationSystem/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/administrator/dashboard/**" access="hasRole('ADMINISTRATOR')"/>
-		<security:intercept-url pattern="/finder/explorer/**" access="hasRole('EXPLORER')"/>
-		<security:intercept-url pattern="/auditorProfile/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/managerProfile/administrator/**" access="hasRole('ADMINISTRATOR')"/>
-		<security:intercept-url pattern="/sponsorProfile/administrator/**" access="hasRole('ADMINISTRATOR')"/>
 		<security:intercept-url pattern="/explorerProfile/administrator/**" access="hasRole('ADMINISTRATOR')"/>
-		
-	
-	
 		<security:intercept-url pattern="/contactsEmergency/explorer/**" access="hasRole('EXPLORER')"/>
 		
 		
-		
- <!-- <security:intercept-url pattern="/trip/sponsorship/**" access="hasRole('SPONSOR')"/>  -->
-	
-	
+		<security:intercept-url pattern="/flout/list.do" access="permitAll"/>
+		<security:intercept-url pattern="/flout/manager_/**" access="hasRole('MANAGER')"/>
+			
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 
 		<security:form-login 

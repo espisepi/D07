@@ -36,17 +36,6 @@
 </jstl:if>
 
 
-	<%-- <spring:url value="applicationFor/manager/edit.do" var="editlink">
-		<spring:param name="search" value="search" />
-		<spring:param name="lowprice" value="lowprice" />
-		<spring:param name="highprice" value="highprice" />
-		<spring:param name="startDate" value="startDate" />
-		<spring:param name="finishDate" value="finishDate" />
-	</spring:url>
-	<input type="submit" name="search"
-		value="<spring:message code="trip.search"/>"
-		onClick=" window.location.href='${editlink}' ">/>&nbsp; --%>
-
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="trips" requestURI="${requestURI}" id="row">
 
@@ -122,21 +111,6 @@
 	<spring:message code="trip.finishDate" var="finishDateHeader" />
 	<display:column property="finishDate" title="${finishDateHeader}" sortable="true" format="${pattern}"/>
 	
-	<spring:message code="trip.ranger" var="rangerHeader" />
-	<display:column title="${rangerHeader}" sortable="true">
-		<spring:url value="curricula/display.do" var="stageURL">
-			<spring:param name="rangerId" value="${row.ranger.id }" />
-		</spring:url>
-			<a href="${stageURL}"><spring:message code="trip.ranger" /></a>
-	</display:column>
-	
-	<spring:message code="trip.auditRecord" var="auditRecordHeader" />
-	<display:column title="${auditRecordHeader}" sortable="true">
-		<spring:url value="auditRecord/displayaudit.do" var="auditRecordURL">
-			<spring:param name="tripId" value="${row.id }" />
-		</spring:url>
-			<a href="${auditRecordURL}"><spring:message code="trip.auditRecord" /></a>
-	</display:column>
 	
 	<security:authorize access= "hasRole('MANAGER')">
 	<spring:message code="trip.stage" var="Stages" />
@@ -165,55 +139,6 @@
 		</display:column>		
 	</security:authorize>
 
-<security:authorize access="hasRole('SPONSOR')">
-	
-	<spring:message code="sponsorship.create" var="Create" />
-	<display:column title="${Create}" sortable="true">
-	<jstl:if test="${row.cancelled==false && util.finishDateFuture(row.finishDate)==true}">
-		<spring:url value="sponsorship/sponsor/create.do" var="createURL">
-			<spring:param name="tripId" value="${row.id}" />
-		</spring:url>
-		<a href="${createURL}"><spring:message code="sponsorship.create" /></a>
-	</jstl:if>
-	</display:column>
-</security:authorize>
-
-<security:authorize access="hasRole('AUDITOR')">
-	<spring:message code="trip.auditRecord.create" var="Create" />
-	<display:column title="${Create}" sortable="true">
-	<jstl:if test="${row.cancelled==false && util.finishDateFuture(row.finishDate)==true}">
-		<spring:url value="auditRecord/auditor/create.do" var="createURL">
-			<spring:param name="tripId" value="${row.id}" />
-		</spring:url>
-		<a href="${createURL}"><spring:message code="auditRecord.create" /></a>
-	</jstl:if>
-	</display:column>
-</security:authorize>
-
-
-<security:authorize access="hasRole('AUDITOR')">
-<spring:message code="note.create" var="Create" />
-	<display:column title="${Create}" sortable="true">
-	<jstl:if test="${row.cancelled==false && util.finishDateFuture(row.finishDate)==true}">
-		<spring:url value="note/auditor/create.do" var="createURL">
-			<spring:param name="tripId" value="${row.id}" />
-		</spring:url>
-		<a href="${createURL}"><spring:message code="note.create" /></a>
-	</jstl:if>
-	</display:column>
-</security:authorize>
-
-<security:authorize access="hasRole('MANAGER')">
-	<spring:message code="trip.survivalClass" var="SurvivalClasses" />
-	<display:column title="${SurvivalClasses}" sortable="true">
-	<jstl:if test="${row.manager==manager && row.cancelled==false && util.finishDateFuture(row.finishDate)==true && util.publicationDate(row.publicationDate)==true}">
-		<spring:url value="survivalClass/manager/create.do" var="createURL">
-			<spring:param name="tripId" value="${row.id}" />
-		</spring:url>
-		<a href="${createURL}"><spring:message code="survivalClass.create" /></a>
-		</jstl:if>
-	</display:column>
-</security:authorize>
 
 <security:authorize access="hasRole('MANAGER')">
 	<spring:message code="trip.cancel" var="Cancel" />
@@ -248,6 +173,14 @@
 	</security:authorize>
 
 
+<!-- AÑADIR BOTON DE NOTIFICATION -->
+<spring:message code="flout.list" var="flouts" />
+<display:column title="${flouts}">
+		<spring:url value="flout/list.do" var="floutURL">
+			<spring:param name="tripId" value="${row.id }" />
+		</spring:url>
+			<a href="${floutURL}"><spring:message code="flout.list" /></a>
+</display:column>
 
 
 </display:table>

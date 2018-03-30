@@ -55,24 +55,4 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 	//La query que se pide sobre el numero de referencias de cada legal text en las trips
 	// se ha dividido en dos querys, estas son las dos de arriba
 
-	@Query("select min(t.notes.size), max(t.notes.size), avg(t.notes.size), stddev(t.notes.size) from Trip t")
-	Double[] findMinMaxAvgStddevOfTheNumOfNotesPerTrip();
-
-	@Query("select min(t.auditRecords.size),max(t.auditRecords.size),avg(t.auditRecords.size), stddev(t.auditRecords.size) from Trip t")
-	Double[] findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip();
-
-	@Query("select count(r)/(select count(t) from Trip t)*1.0 from Trip r where r.auditRecords.size>0")
-	Double findTheRatOfTripsWihoutAnAuditRecord();
-
-	@Query("select count(c) / (select count(s) from Ranger s)*1.0 from Curricula c")
-	Double findTheRatOfRangersWhoHaveRegisteredCurricula();
-
-	@Query("select count(c) /(select count(s) from Curricula s where s.endorserRecords is not empty)*1.0 from Curricula c")
-	Double findTheRatOfRangersWhoseCurrIsEndorsed();
-
-	@Query("select (select count(m1) from Manager m1 where m1.suspicious=false)*1.0/count(m) from Manager m")
-	Double findTheRatOFSuspiciousManagers();
-
-	@Query("select (select count(r1) from Ranger r1 where r1.suspicious=false)*1.0/count(r) from Ranger r")
-	Double findTheRatOFSuspiciousRangers();
 }

@@ -42,13 +42,6 @@ public class AdministratorDashboardController extends AbstractController {
 		Collection<Trip> findTrips10porcentMoreApplicationsThanAvg;
 		Collection<String> titlesOfLegalText;
 		Collection<Integer> findNumOfReferencesOfLegalText;
-		Double findMinMaxAvgStddevOfTheNumOfNotesPerTrip[];
-		Double findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip[];
-		Double findTheRatOfTripsWihoutAnAuditRecord;
-		Double findTheRatOfRangersWhoHaveRegisteredCurricula;
-		Double findTheRatOfRangersWhoseCurrIsEndorsed;
-		Double findTheRatOFSuspiciousManagers;
-		Double findTheRatOFSuspiciousRangers;
 
 		findAvgMinMaxStddevOfTheNumOfApplicationsPerTrip = this.administratorService.findAvgMinMaxStddevOfTheNumOfApplicationsPerTrip();
 		findAvgMinMaxStddevOfTheNumOfTripsPerManager = this.administratorService.findAvgMinMaxStddevOfTheNumOfTripsPerManager();
@@ -62,13 +55,6 @@ public class AdministratorDashboardController extends AbstractController {
 		findTrips10porcentMoreApplicationsThanAvg = this.administratorService.findTrips10porcentMoreApplicationsThanAvg();
 		titlesOfLegalText = this.administratorService.titlesOfLegalText();
 		findNumOfReferencesOfLegalText = this.administratorService.findNumOfReferencesOfLegalText();
-		findMinMaxAvgStddevOfTheNumOfNotesPerTrip = this.administratorService.findMinMaxAvgStddevOfTheNumOfNotesPerTrip();
-		findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip = this.administratorService.findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip();
-		findTheRatOfTripsWihoutAnAuditRecord = this.administratorService.findTheRatOfTripsWihoutAnAuditRecord();
-		findTheRatOfRangersWhoHaveRegisteredCurricula = this.administratorService.findTheRatOfRangersWhoHaveRegisteredCurricula();
-		findTheRatOfRangersWhoseCurrIsEndorsed = this.administratorService.findTheRatOfRangersWhoseCurrIsEndorsed();
-		findTheRatOFSuspiciousManagers = this.administratorService.findTheRatOFSuspiciousManagers();
-		findTheRatOFSuspiciousRangers = this.administratorService.findTheRatOFSuspiciousRangers();
 
 		result.addObject("findAvgMinMaxStddevOfTheNumOfApplicationsPerTrip", findAvgMinMaxStddevOfTheNumOfApplicationsPerTrip);
 		result.addObject("findAvgMinMaxStddevOfTheNumOfTripsPerManager", findAvgMinMaxStddevOfTheNumOfTripsPerManager);
@@ -82,13 +68,6 @@ public class AdministratorDashboardController extends AbstractController {
 		result.addObject("findTrips10porcentMoreApplicationsThanAvg", findTrips10porcentMoreApplicationsThanAvg);
 		result.addObject("titlesOfLegalText", titlesOfLegalText);
 		result.addObject("findNumOfReferencesOfLegalText", findNumOfReferencesOfLegalText);
-		result.addObject("findMinMaxAvgStddevOfTheNumOfNotesPerTrip", findMinMaxAvgStddevOfTheNumOfNotesPerTrip);
-		result.addObject("findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip", findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip);
-		result.addObject("findTheRatOfTripsWihoutAnAuditRecord", findTheRatOfTripsWihoutAnAuditRecord);
-		result.addObject("findTheRatOfRangersWhoHaveRegisteredCurricula", findTheRatOfRangersWhoHaveRegisteredCurricula);
-		result.addObject("findTheRatOfRangersWhoseCurrIsEndorsed", findTheRatOfRangersWhoseCurrIsEndorsed);
-		result.addObject("findTheRatOFSuspiciousManagers", findTheRatOFSuspiciousManagers);
-		result.addObject("findTheRatOFSuspiciousRangers", findTheRatOFSuspiciousRangers);
 
 		return result;
 

@@ -225,79 +225,7 @@
 </table>
 
 
-<table>
-	<caption class="caption">
 
-		<spring:message
-			code="dashboard.findMinMaxAvgStddevOfTheNumOfNotesPerTrip" />
-
-	</caption>
-	<tr>
-		<th><spring:message code="dashboard.MIN" /></th>
-		<th><spring:message code="dashboard.MAX" /></th>
-		<th><spring:message code="dashboard.AVG" /></th>
-		<th><spring:message code="dashboard.STDDEV" /></th>
-	</tr>
-	<tr>
-		<jstl:forEach var="medidas"
-			items="${findMinMaxAvgStddevOfTheNumOfNotesPerTrip }">
-			<td><jstl:out value="${ medidas}"></jstl:out></td>
-		</jstl:forEach>
-	</tr>
-</table>
-
-<table>
-	<caption class="caption">
-
-		<spring:message
-			code="dashboard.findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip" />
-
-	</caption>
-	<tr>
-		<th><spring:message code="dashboard.MIN" /></th>
-		<th><spring:message code="dashboard.MAX" /></th>
-		<th><spring:message code="dashboard.AVG" /></th>
-		<th><spring:message code="dashboard.STDDEV" /></th>
-	</tr>
-	<tr>
-		<jstl:forEach var="medidas"
-			items="${findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip}">
-			<td><jstl:out value="${ medidas}"></jstl:out></td>
-		</jstl:forEach>
-	</tr>
-</table>
-
-<table>
-	<caption class="caption">
-		<spring:message code="dashboard.statistics" var="statistics" />
-
-		<jstl:out value="${statistics }"></jstl:out>
-
-	</caption>
-	<tr>
-		<th><spring:message
-				code="dashboard.findTheRatOfRangersWhoHaveRegisteredCurricula" /></th>
-		<th><spring:message
-				code="dashboard.findTheRatOfRangersWhoseCurrIsEndorsed" /></th>
-		<th><spring:message
-				code="dashboard.findTheRatOFSuspiciousManagers" /></th>
-		<th><spring:message
-				code="dashboard.findTheRatOFSuspiciousRangers" /></th>
-
-	</tr>
-	<tr>
-		<td><jstl:out
-				value="${findTheRatOfRangersWhoHaveRegisteredCurricula}"></jstl:out>
-		</td>
-		<td><jstl:out value="${findTheRatOfRangersWhoseCurrIsEndorsed}"></jstl:out>
-		</td>
-		<td><jstl:out value="${findTheRatOFSuspiciousManagers}"></jstl:out>
-		</td>
-		<td><jstl:out value="${findTheRatOFSuspiciousRangers}"></jstl:out>
-		</td>
-
-	</tr>
-</table>
 
 
 

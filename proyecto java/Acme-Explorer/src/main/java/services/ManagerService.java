@@ -38,9 +38,6 @@ public class ManagerService {
 	private ActorService				actorService;
 
 	@Autowired
-	private SurvivalClassService		survivalClassService;
-
-	@Autowired
 	private ConfigurationSystemService	configurationSystemService;
 
 
@@ -166,12 +163,6 @@ public class ManagerService {
 		if (result == true) {
 			manager.setSuspicious(result);
 			return result;
-		}
-		result = this.survivalClassService.survivalClassContainsSpam(manager);
-		if (result == true) {
-			manager.setSuspicious(result);
-			return result;
-
 		}
 		return result;
 	}

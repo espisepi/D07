@@ -14,12 +14,9 @@ import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.ApplicationFor;
-import domain.AuditRecord;
-import domain.Auditor;
 import domain.Category;
 import domain.Explorer;
 import domain.Manager;
-import domain.Note;
 import domain.Trip;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -40,19 +37,13 @@ public class TripServiceTest extends AbstractTest {
 
 	@Autowired
 	private ExplorerService			explorerService;
-
-	@Autowired
-	private AuditorService			auditorService;
-	@Autowired
-	private NoteService				noteService;
 	@Autowired
 	private ApplicationForService	applicationForService;
 	@Autowired
 	private CategoryService			categoryService;
+
+
 	@Autowired
-	private AuditRecordService		auditRecordService;
-
-
 	@Test
 	public void testCreate() {
 		this.authenticate("manager1");
@@ -165,15 +156,6 @@ public class TripServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void testFindByAuditorId() {
-		Collection<Trip> trips;
-		Auditor auditor;
-		auditor = this.auditorService.findOne(super.getEntityId("auditor1"));
-		trips = new ArrayList<Trip>(this.tripService.findByAuditorId(auditor.getId()));
-		Assert.notNull(trips);
-	}
-
-	@Test
 	public void testFindAllTripsNotPublished() {
 		Collection<Trip> trips;
 		trips = new ArrayList<>(this.tripService.findAllTripsNotPublished());
@@ -247,19 +229,6 @@ public class TripServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void testfindTripsByNote() {
-
-		Trip trip;
-		Note note;
-
-		note = this.noteService.findOne(super.getEntityId("note1"));
-		trip = this.tripService.findTripsByNote(note);
-
-		Assert.notNull(trip);
-
-	}
-
-	@Test
 	public void testFindAllTripsNotApplyByExplorerId() {
 		Collection<Trip> trips;
 		Explorer explorer;
@@ -298,25 +267,4 @@ public class TripServiceTest extends AbstractTest {
 		Assert.notNull(result);
 	}
 
-	@Test
-	public void testTripsForStory() {
-
-		this.authenticate("explorer1");
-		Collection<Trip> trips;
-
-		trips = this.tripService.findTripsForStory();
-
-		Assert.notNull(trips);
-		Assert.notEmpty(trips);
-	}
-
-	@Test
-	public void testFindAuditRecord() {
-		AuditRecord audit;
-		Trip trip;
-
-		audit = this.auditRecordService.findOne(super.getEntityId("auditrecord2"));
-		trip = this.tripService.findAuditRecord(audit);
-		Assert.notNull(trip);
-	}
 }

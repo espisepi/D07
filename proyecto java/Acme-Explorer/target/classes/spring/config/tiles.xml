@@ -22,38 +22,23 @@
 		<value>/views/misc/tiles.xml</value>		
 		<value>/views/security/tiles.xml</value>
 		<value>/views/welcome/tiles.xml</value>
-		<value>/views/profile/tiles.xml</value>
-		
+		<value>/views/profile/tiles.xml</value>	
 		<value>/views/trip/tiles.xml</value>
 		<value>/views/applicationFor/tiles.xml</value>
-		<value>/views/auditor/tiles.xml</value>
-		<value>/views/auditRecord/tiles.xml</value>
 		<value>/views/category/tiles.xml</value>
 		<value>/views/explorer/tiles.xml</value>
 		<value>/views/manager/tiles.xml</value>
 		<value>/views/ranger/tiles.xml</value>
-		<value>/views/note/tiles.xml</value>
-		<value>/views/sponsor/tiles.xml</value>
-		<value>/views/sponsorship/tiles.xml</value>
-		<value>/views/survivalClass/tiles.xml</value>
 		<value>/views/contactsEmergency/tiles.xml</value>
-		<value>/views/story/tiles.xml</value>
 		<value>/views/message/tiles.xml</value>
 		<value>/views/messageFolder/tiles.xml</value>
-		<value>/views/curricula/tiles.xml/</value>
-		<value>/views/miscellaneousRecord/tiles.xml/</value>
-		<value>/views/endorserRecord/tiles.xml/</value>
-		<value>/views/professionalRecord/tiles.xml/</value>
-		<value>/views/educationRecord/tiles.xml/</value>
-		<value>/views/personalRecord/tiles.xml/</value>
 		<value>/views/stage/tiles.xml/</value>
 		<value>/views/legalText/tiles.xml/</value>
 		<value>/views/administrator/tiles.xml/</value>
 		<value>/views/configurationSystem/tiles.xml/</value>
 		<value>/views/tag/tiles.xml/</value>
-		<value>/views/finder/tiles.xml/</value>
 		<value>/views/value/tiles.xml/</value>
-		
+		<value>/views/flout/tiles.xml/</value>
 		
 		
 	</util:list>

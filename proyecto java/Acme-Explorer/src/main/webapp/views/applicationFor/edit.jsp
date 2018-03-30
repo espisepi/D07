@@ -56,49 +56,7 @@
 
 	
 	
-<%-- 	<fieldset>
-		<form:label path="creditCard.holderName">
-		<spring:message code="applicationfor.creditCard.holderName" />:
-	</form:label>
-	<form:input path="creditCard.holderName" />
-	<form:errors cssClass="error" path="creditCard.holderName" />
-	<br/>
-	
-	<form:label path="creditCard.brandName">
-		<spring:message code="applicationfor.creditCard.brandName" />:
-	</form:label>
-	<form:input path="creditCard.brandName" />
-	<form:errors cssClass="error" path="creditCard.brandName" />
-	<br/>
-	
-	<form:label path="creditCard.number">
-		<spring:message code="applicationfor.creditCard.number" />:
-	</form:label>
-	<form:input path="creditCard.number" />
-	<form:errors cssClass="error" path="creditCard.number" />
-	<br/>
-	
-	<form:label path="creditCard.expirationMonth">
-		<spring:message code="applicationfor.creditCard.expirationMonth" />:
-	</form:label>
-	<form:input path="creditCard.expirationMonth" />
-	<form:errors cssClass="error" path="creditCard.expirationMonth" />
-	<br/>
-	
-	<form:label path="creditCard.expirationYear">
-		<spring:message code="applicationfor.creditCard.expirationYear" />:
-	</form:label>
-	<form:input path="creditCard.expirationYear" />
-	<form:errors cssClass="error" path="creditCard.expirationYear" />
-	<br/>
-	
-	<form:label path="creditCard.cvv">
-		<spring:message code="applicationfor.creditCard.cvv" />:
-	</form:label>
-	<form:input path="creditCard.cvv" />
-	<form:errors cssClass="error" path="creditCard.cvv" />
-	<br/>
-	</fieldset> --%>
+
 	
 	
 	<br />

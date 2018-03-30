@@ -14,7 +14,6 @@ import repositories.RangerRepository;
 import security.Authority;
 import security.LoginService;
 import security.UserAccount;
-import domain.Curricula;
 import domain.MessageFolder;
 import domain.Ranger;
 import domain.SocialIdentity;
@@ -33,9 +32,6 @@ public class RangerService {
 
 	@Autowired
 	private MessageFolderService		messageFolderService;
-
-	@Autowired
-	private CurriculaService			curriculaService;
 
 	@Autowired
 	private ActorService				actorService;
@@ -157,20 +153,7 @@ public class RangerService {
 
 	public Boolean rangerIsSpam(final Ranger ranger) {
 		Boolean result;
-		Collection<Curricula> curricula;
 		result = false;
-
-		curricula = this.curriculaService.findAll();
-
-		for (final Curricula c : curricula)
-			if (c.getRanger().equals(ranger)) {
-				result = this.curriculaService.curriculaContainsSpam(ranger);
-				if (result == true) {
-					ranger.setSuspicious(result);
-					return result;
-				}
-			}
-
 		result = this.actorService.actorIsSpam(ranger);
 		if (result == true) {
 			ranger.setSuspicious(result);

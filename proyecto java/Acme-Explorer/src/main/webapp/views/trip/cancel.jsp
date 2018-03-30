@@ -31,8 +31,6 @@
 	<form:hidden path="manager"/>
 	<form:hidden path="stages"/>
 	<form:hidden path="applicationsFor"/>
-	<form:hidden path="notes"/>
-	<form:hidden path="auditRecords"/>
 	<form:hidden path="ranger"/>
 	
 

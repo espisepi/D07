@@ -213,50 +213,6 @@ public class AdministratorService {
 		return result;
 	}
 
-	public Double[] findMinMaxAvgStddevOfTheNumOfNotesPerTrip() {
-		Double[] result;
-		result = this.administratorRepository.findMinMaxAvgStddevOfTheNumOfNotesPerTrip();
-		Assert.notNull(result);
-		return result;
-	}
-
-	public Double[] findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip() {
-		Double[] result;
-		result = this.administratorRepository.findMinMaxAvgStddevOfTheNumOfAuditRecordsPerTrip();
-		Assert.notNull(result);
-		return result;
-	}
-
-	public Double findTheRatOfTripsWihoutAnAuditRecord() {
-		Double result;
-		result = this.administratorRepository.findTheRatOfTripsWihoutAnAuditRecord();
-		return result;
-	}
-
-	public Double findTheRatOfRangersWhoHaveRegisteredCurricula() {
-		Double result;
-		result = this.administratorRepository.findTheRatOfRangersWhoHaveRegisteredCurricula();
-		return result;
-	}
-
-	public Double findTheRatOfRangersWhoseCurrIsEndorsed() {
-		Double result;
-		result = this.administratorRepository.findTheRatOfRangersWhoseCurrIsEndorsed();
-		return result;
-	}
-
-	public Double findTheRatOFSuspiciousManagers() {
-		Double result;
-		result = this.administratorRepository.findTheRatOFSuspiciousManagers();
-		return result;
-	}
-
-	public Double findTheRatOFSuspiciousRangers() {
-		Double result;
-		result = this.administratorRepository.findTheRatOFSuspiciousRangers();
-		return result;
-	}
-
 	public Boolean administratorIsSpam(final Administrator administrator) {
 		Boolean result;
 		result = false;

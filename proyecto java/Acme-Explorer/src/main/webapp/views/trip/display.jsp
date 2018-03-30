@@ -29,7 +29,13 @@
 	<p><spring:message code="trip.finishDate" />:  <jstl:out value="${trip.finishDate}"></jstl:out></p>	
 	<p><spring:message code="trip.manager.name" />:  <jstl:out value="${trip.manager.name}"></jstl:out></p>
 		
-	
+	<!-- AÑADIR BOTON DE NOTIFICATION -->
+	<spring:message code="flout.list" var="flouts" />
+		<spring:url value="flout/list.do" var="floutURL">
+			<spring:param name="tripId" value="${trip.id }" />
+		</spring:url>
+			<a href="${floutURL}"><spring:message code="flout.list" /></a>
+
 	<h2><spring:message code="trip.ranger" /></h2>	
 	<display:table name="ranger" id="row" class="displaytag">
 		<spring:message code="trip.ranger" var="titleHeader" />
@@ -66,17 +72,6 @@
 		</display:column>
 	</display:table>
 	
-	<h2><spring:message code="trip.auditRecords.name.table" /></h2>	
-	<display:table name="auditRecords" id="row" class="displaytag">
-		<spring:message code="trip.auditRecords.title" var="titleHeader" />
-		<display:column property="title" title="${titleHeader}" sortable="false" >
-			<jstl:out value="${row.title}"></jstl:out>
-		</display:column>
-		<spring:message code="trip.auditRecords.description" var="titleHeader2" />
-		<display:column property="description" title="${titleHeader2}" sortable="false" >
-			<jstl:out value="${row.description}"></jstl:out>
-		</display:column>
-	</display:table>
 	
 	<security:authorize access="hasRole('MANAGER')">
 	<h2><spring:message code="trip.applications" /></h2>	
@@ -91,89 +86,6 @@
 		</display:column>
 	</display:table>
 	</security:authorize>
-	
-	<security:authorize access="hasRole('MANAGER') || hasRole('AUDITOR')">
-	
-	<h2><spring:message code="trip.notes.name.table" /></h2>	
-	<display:table name="notes" id="row" class="displaytag">
-	
-		<spring:message code="trip.format.date1" var="pattern"></spring:message>
-		<spring:message code="trip.notes.createdMoment" var="createdMomentHeader" />
-		<display:column property="createdMoment" title="${createdMomentHeader}" sortable="false" format="${pattern}"/>
-		
-		<spring:message code="trip.notes.body" var="titleHeader2" />
-		<display:column property="body" title="${titleHeader2}" sortable="false" >
-			<jstl:out value="${row.body}"></jstl:out>
-		</display:column>
-		
-		<spring:message code="trip.notes.remark" var="titleHeader3" />
-		<display:column property="remark" title="${titleHeader3}" sortable="false" >
-			<jstl:out value="${row.remark}"></jstl:out>
-		</display:column>
-		
-		<spring:message code="trip.notes.reply" var="titleHeader4" />
-		<display:column property="reply" title="${titleHeader4}" sortable="false" >
-			<jstl:out value="${row.reply}"></jstl:out>
-		</display:column>
-	
-		<spring:message code="trip.format.date1" var="pattern"></spring:message>
-		<spring:message code="trip.notes.replyMoment" var="replayMomentHeader" />
-		<display:column property="replyMoment" title="${replayMomentHeader}" sortable="false" format="${pattern}"/>
-			
-	</display:table>
-	</security:authorize>
-	
-	
-	<h2><spring:message code="trip.stories.name.table" /></h2>	
-	<display:table name="stories" id="row" class="displaytag">
-	
-		<spring:message code="trip.stories.title" var="titleHeader5" />
-		<display:column property="title" title="${titleHeader5}" sortable="false" >
-			<jstl:out value="${row.title}"></jstl:out>
-		</display:column>
-		
-		<spring:message code="trip.stories.text" var="titleHeader6" />
-		<display:column property="text" title="${titleHeader6}" sortable="false" >
-			<jstl:out value="${row.text}"></jstl:out>
-		</display:column>
-		
-	</display:table>
-	
-	
-	<h2><spring:message code="trip.classes.name.table" /></h2>	
-	<display:table name="classes" id="row" class="displaytag">
-	
-		<spring:message code="trip.classes.title" var="titleHeader5" />
-		<display:column property="title" title="${titleHeader5}" sortable="false" >
-			<jstl:out value="${row.title}"></jstl:out>
-		</display:column>
-		
-		<spring:message code="trip.classes.description" var="titleHeader6" />
-		<display:column property="description" title="${titleHeader6}" sortable="false" >
-			<jstl:out value="${row.description}"></jstl:out>
-		</display:column>
-		
-		<spring:message code="trip.format.date1" var="pattern"></spring:message>
-		<spring:message code="trip.classes.moment" var="createdMomentHeader" />
-		<display:column property="organisedMoment" title="${createdMomentHeader}" sortable="false" format="${pattern}"/>
-			
-	</display:table>
-	
-	
-	
-<h2><spring:message code="sponsorship.bannerURL" /></h2>
-<display:table name="sponsorshiprandom" id="row" class="displaytag">
-		<jstl:if test="${row!='nothing to show'}">
-<spring:message code="sponsorship.bannerURL" var="bannerURLHeader" />
-		 <display:column >
-		 <div
-  style="position: relative; width: 500px; height: 300px; margin-left: auto; margin-right: auto;">
-  			
-		  <img src="${row}"width= "500" height="300">
-		  </div>
-		 </display:column> 
-	</jstl:if>
-</display:table>
 	
 	
 <security:authorize access="hasRole('MANAGER')">

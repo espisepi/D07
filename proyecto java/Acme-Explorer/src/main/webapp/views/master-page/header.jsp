@@ -128,15 +128,6 @@
 					<li class="arrow"></li>
 					<li><a href="applicationFor/explorer/list.do"><spring:message code="master.page.explorer.list.applicationFor" /></a></li>
 					<li><a href="trip/explorer/list-not-apply.do"><spring:message code="master.page.explorer.list.not.apply.trips" /></a></li>
-					<li><a href="finder/explorer/list.do"><spring:message code="master.page.message.finder" /></a></li>
-				</ul></li>
-				
-				<li><a class="fNiv"><spring:message
-						code="master.page.stories" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="story/explorer/list.do"><spring:message code="master.page.explorer.stories" /></a></li>
-					<li><a href="trip/explorer/listTrip.do"><spring:message code="master.page.explorer.trips.stories" /></a></li>
 				</ul></li>
 				
 				<li><a class="fNiv"><spring:message
@@ -192,9 +183,7 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="rangerProfile/administrator/create.do"><spring:message code="master.page.rangerProfile.administrator.create" /></a></li>
-					<li><a href="auditorProfile/administrator/create.do"><spring:message code="master.page.auditorProfile.administrator.create" /></a></li>
 					<li><a href="managerProfile/administrator/create.do"><spring:message code="master.page.managerProfile.administrator.create" /></a></li>
-					<li><a href="sponsorProfile/administrator/create.do"><spring:message code="master.page.sponsorProfile.administrator.create" /></a></li>
 					<li><a href="administrator/create.do"><spring:message code="master.page.administratorProfile.administrator.create" /></a></li>
 					<li><a href="explorerProfile/create.do"><spring:message code="master.page.explorerProfile.create" /></a></li>
 					
@@ -253,13 +242,6 @@
 					<li><a href="message/ranger/send.do"><spring:message code="master.page.message.send" /></a></li>
 				</ul></li>
 				
-				<li><a class="fNiv"><spring:message
-						code="master.page.curricula" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="curricula/ranger/display.do"><spring:message code="master.page.curricula.ranger.display" /></a></li>
-				</ul></li>
-				
 			<li><a class="fNiv"><spring:message
 						code="master.page.noautenticadostrips" /></a>
 				<ul>
@@ -297,21 +279,7 @@
 					<li class="arrow"></li>
 					<li><a href="applicationFor/manager/list.do"><spring:message code="master.page.manager.list.applicationFor" /></a></li>
 				</ul></li>
-				
-			<li><a class="fNiv"><spring:message
-						code="master.page.note" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="note/manager/list.do"><spring:message code="master.page.note.manager.list" /></a></li>
-				</ul></li>
-				
-			<li><a class="fNiv"><spring:message
-						code="master.page.survivalClass" /></a>
-				<ul>
-					<li class="arrow"></li>
-					<li><a href="survivalClass/manager/list.do"><spring:message code="master.page.survivalClass.manager" /></a></li>
-					<li><a href="trip/manager_/list.do"><spring:message code="master.page.manager.createClass.trips" /></a></li>
-				</ul></li> 
+
 				
 				<li><a class="fNiv"><spring:message
 						code="master.page.funcionality" /></a>
@@ -333,6 +301,18 @@
 					<li class="arrow"></li>
 					<li><a href="category/list.do"><spring:message code="master.page.administrator.categories" /></a></li>
 				</ul></li>
+				
+				<!-- COLUMNA DE FLOUTS EN MANAGER -->
+				<li><a class="fNiv"><spring:message
+						code="master.page.flout" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="flout/manager_/list.do"><spring:message code="master.page.flout" /></a></li>
+				</ul></li>
+				
+				
+				
+				
 		</security:authorize>
 
 

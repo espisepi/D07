@@ -42,10 +42,6 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 	@Query("select t from Trip t join t.applicationsFor a where a.explorer.id=?1")
 	Collection<Trip> findAllTripsApplyByExplorerId(int explorerId);
 
-	//Requisito de Información B/10.
-	@Query("select t from Trip t join t.auditRecords a where a.auditor.id=?1")
-	Collection<Trip> findByAuditorId(int auditorId);
-
 	//Suma todos los precios con iva de las stages de la trip pasada como parámetro.
 	@Query("select sum(c.totalPrice) from Trip r join r.stages c where r.id=?1")
 	Double findPrice(int tripId);
@@ -58,14 +54,5 @@ public interface TripRepository extends JpaRepository<Trip, Integer> {
 
 	@Query("select c.trips from Category c where c.id = ?1")
 	Collection<Trip> findByCategory(int categoryId);
-
-	@Query("select t from Trip t join t.auditRecords r where r.id=?1")
-	Trip findAuditRecordByTrip(int auditRecordId);
-
-	@Query("select t from Trip t join t.applicationsFor a where a.status='ACCEPTED' and t.finishDate<CURRENT_TIMESTAMP and a.explorer.id=?1 and t.cancelled=false")
-	Collection<Trip> findTripsForStory(int explorerId);
-
-	@Query("select t from Trip t join t.notes n where n.id=?1")
-	Trip findTripByNote(int noteId);
 
 }

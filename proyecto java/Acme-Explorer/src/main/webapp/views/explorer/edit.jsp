@@ -28,7 +28,6 @@
 	<form:hidden path="userAccount"/>
 	<form:hidden path="userAccount.authorities"/>
 	<form:hidden path="userAccount.activated"/>
-	<form:hidden path="stories"/>
 	<form:hidden path="applicationsFor"/>
 	<form:hidden path="contactsEmergency"/>
 	<form:hidden path="suspicious"/>

@@ -140,10 +140,19 @@ public class Trip extends DomainEntity {
 	private Collection<Stage>			stages;
 	private Collection<Value>			values;
 	private Collection<ApplicationFor>	applicationsFor;
-	private Collection<Note>			notes;
-	private Collection<AuditRecord>		auditRecords;
 	private Ranger						ranger;
+	private Collection<Flout>			flouts;
 
+
+	@NotNull
+	@OneToMany(mappedBy = "trip", cascade = CascadeType.REMOVE)
+	public Collection<Flout> getFlouts() {
+		return this.flouts;
+	}
+
+	public void setFlouts(final Collection<Flout> flouts) {
+		this.flouts = flouts;
+	}
 
 	@NotNull
 	@Valid
@@ -182,28 +191,8 @@ public class Trip extends DomainEntity {
 		return this.applicationsFor;
 	}
 
-	public void setApplicationsFor(Collection<ApplicationFor> applicationsFor) {
+	public void setApplicationsFor(final Collection<ApplicationFor> applicationsFor) {
 		this.applicationsFor = applicationsFor;
-	}
-
-	@Valid
-	@OneToMany(cascade = CascadeType.REMOVE)
-	public Collection<Note> getNotes() {
-		return this.notes;
-	}
-
-	public void setNotes(Collection<Note> notes) {
-		this.notes = notes;
-	}
-
-	@Valid
-	@OneToMany(cascade = CascadeType.REMOVE)
-	public Collection<AuditRecord> getAuditRecords() {
-		return this.auditRecords;
-	}
-
-	public void setAuditRecords(Collection<AuditRecord> auditRecords) {
-		this.auditRecords = auditRecords;
 	}
 
 	@Valid
@@ -212,7 +201,7 @@ public class Trip extends DomainEntity {
 		return this.ranger;
 	}
 
-	public void setRanger(Ranger ranger) {
+	public void setRanger(final Ranger ranger) {
 		this.ranger = ranger;
 	}
 

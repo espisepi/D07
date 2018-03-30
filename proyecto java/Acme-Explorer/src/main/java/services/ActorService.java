@@ -15,12 +15,10 @@ import security.LoginService;
 import security.UserAccount;
 import domain.Actor;
 import domain.Administrator;
-import domain.Auditor;
 import domain.Explorer;
 import domain.Manager;
 import domain.Ranger;
 import domain.SocialIdentity;
-import domain.Sponsor;
 
 @Service
 @Transactional
@@ -34,9 +32,6 @@ public class ActorService {
 	private AdministratorService		administratorService;
 
 	@Autowired
-	private AuditorService				auditorService;
-
-	@Autowired
 	private ExplorerService				explorerService;
 
 	@Autowired
@@ -44,9 +39,6 @@ public class ActorService {
 
 	@Autowired
 	private RangerService				rangerService;
-
-	@Autowired
-	private SponsorService				sponsorService;
 
 	// Supporting services ----------------------------------------------------
 	@Autowired
@@ -167,9 +159,7 @@ public class ActorService {
 	public Collection<Actor> suspicious() {
 
 		Collection<Explorer> explorers;
-		Collection<Auditor> auditors;
 		Collection<Manager> managers;
-		Collection<Sponsor> sponsors;
 		Collection<Administrator> administrators;
 		Collection<Ranger> rangers;
 		boolean result;
@@ -177,22 +167,14 @@ public class ActorService {
 
 		actors = new ArrayList<Actor>();
 		administrators = this.administratorService.findAll();
-		auditors = this.auditorService.findAll();
 		explorers = this.explorerService.findAll();
 		managers = this.managerService.findAll();
 		rangers = this.rangerService.findAll();
-		sponsors = this.sponsorService.findAll();
 
 		for (Administrator a : administrators) {
 			result = this.administratorService.administratorIsSpam(a);
 			if (result == true)
 				actors.add(a);
-		}
-
-		for (Auditor au : auditors) {
-			result = this.auditorService.auditorIsSpam(au);
-			if (result == true)
-				actors.add(au);
 		}
 
 		for (Explorer e : explorers) {
@@ -211,12 +193,6 @@ public class ActorService {
 			result = this.rangerService.rangerIsSpam(r);
 			if (result == true)
 				actors.add(r);
-		}
-
-		for (Sponsor s : sponsors) {
-			result = this.sponsorService.sponsorIsSpam(s);
-			if (result == true)
-				actors.add(s);
 		}
 
 		return actors;

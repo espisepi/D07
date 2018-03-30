@@ -30,47 +30,14 @@
 		<bean class="converters.ManagerToStringConverter" /> 
 		<bean class="converters.StringToManagerConverter" /> 
 		
-		<bean class="converters.ExplorerToStringConverter" /> 
-		<bean class="converters.StringToExplorerConverter" /> 
 		
-		<bean class="converters.AdministratorToStringConverter" /> 
-		<bean class="converters.StringToAdministratorConverter" /> 
 		
 		<bean class="converters.ContactEmergencyToStringConverter" /> 
 		<bean class="converters.StringToContactEmergencyConverter" /> 
-		
-		<bean class="converters.AuditorToStringConverter" /> 
-		<bean class="converters.StringToAuditorConverter" /> 
-		
-		<bean class="converters.CurriculaToStringConverter" /> 
-		<bean class="converters.StringToCurriculaConverter" /> 
-		
-		<bean class="converters.MiscellaneousRecordToStringConverter" /> 
-		<bean class="converters.StringToMiscellaneousRecordConverter" /> 
-		
-		<bean class="converters.ProfessionalRecordToStringConverter" /> 
-		<bean class="converters.StringToProfessionalRecordConverter" /> 
-		
-		<bean class="converters.SurvivalClassToStringConverter" /> 
-		<bean class="converters.StringToSurvivalClassConverter" /> 
-		
-		<bean class="converters.StoryToStringConverter" /> 
-		<bean class="converters.StringToStoryConverter" /> 
-		
-		<bean class="converters.EducationRecordToStringConverter" /> 
-		<bean class="converters.StringToEducationRecordConverter" /> 
-		
-		<bean class="converters.PersonalRecordToStringConverter" /> 
-		<bean class="converters.StringToPersonalRecordConverter" /> 
+			
 		
 		<bean class="converters.ApplicationForToStringConverter" /> 
 		<bean class="converters.StringToApplicationForConverter" /> 
-		
-		<bean class="converters.AuditRecordToStringConverter" /> 
-		<bean class="converters.StringToAuditRecordConverter" />
-		
-		<bean class="converters.NoteToStringConverter" /> 
-		<bean class="converters.StringToNoteConverter" /> 
 		
 		<bean class="converters.TagToStringConverter" /> 
 		<bean class="converters.StringToTagConverter" /> 
@@ -82,10 +49,7 @@
 		<bean class="converters.StringToStageConverter" /> 
 		
 		<bean class="converters.TripToStringConverter" /> 
-		<bean class="converters.StringToTripConverter" /> 
-		
-		<bean class="converters.SponsorshipToStringConverter" /> 
-		<bean class="converters.StringToSponsorshipConverter" /> 
+		<bean class="converters.StringToTripConverter" />  
 		
 		<bean class="converters.ConfigurationSystemToStringConverter" /> 
 		<bean class="converters.StringToConfigurationSystemConverter" /> 
@@ -96,8 +60,6 @@
 		<bean class="converters.StringToMessageFolderConverter"/>
 		<bean class="converters.MessageFolderToStringConverter"/>
 		
-		<bean class ="converters.SponsorToStringConverter"/>
-		<bean class ="converters.StringToSponsorConverter"/>
 		
 		<bean class ="converters.UserAccountToStringConverter"/>
 		<bean class ="converters.StringToUserAccountConverter"/>
@@ -108,14 +70,9 @@
 		<bean class="converters.CategoryToStringConverter"/>
 		<bean class="converters.StringToCategoryConverter"/>
 		
-		<bean class="converters.StringToAttachmentConverter"/>
-		<bean class="converters.AttachmentToStringConverter"/>
-		
 		<bean class="converters.StringToMessageConverter"/>
 		<bean class="converters.MessageToStringConverter"/>
-		
-		<bean class="converters.StringToGPSConverter"/>
-		<bean class="converters.GPSToStringConverter"/>
+
 		
 		<bean class="converters.StringToAuthorityConverter"/>
 		<bean class="converters.AuthorityToStringConverter"/>
@@ -126,9 +83,9 @@
 		<bean class="converters.StringToValueConverter"/>
 		<bean class="converters.ValueToStringConverter"/>
 		
- 		<bean class="converters.StringToFinderConverter"/>
-		<bean class="converters.FinderToStringConverter"/>
-		
+		<bean class="converters.StringToFloutConverter"/>
+		<bean class="converters.FloutToStringConverter"/>
+				
 	</util:list>
 	
 </beans>
